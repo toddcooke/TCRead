@@ -7,18 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93DFB28F0C20713973F467CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DFB79F1854EC5203C31733 /* Assets.xcassets */; };
+		93DFB56887391E3D0C1882C7 /* TCReadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DFBCB3B775CBCC2B72546E /* TCReadApp.swift */; };
+		93DFB810831C0910D94F0708 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DFB4920017E05C49894102 /* Repository.swift */; };
+		93DFBC477E29B168116B5E1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DFB82440FDCC5957F3E7BA /* Preview Assets.xcassets */; };
+		93DFBDA88F1A147513EB05D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DFB0F3A740ECD98406551A /* ContentView.swift */; };
 		B49288742943EA5700E435B4 /* TCReadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49288732943EA5700E435B4 /* TCReadApp.swift */; };
 		B49288762943EA5700E435B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49288752943EA5700E435B4 /* ContentView.swift */; };
-		B49288782943EA5800E435B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B49288772943EA5800E435B4 /* Assets.xcassets */; };
 		B492887B2943EA5800E435B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B492887A2943EA5800E435B4 /* Preview Assets.xcassets */; };
+		B49288832943EC0B00E435B4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B49288822943EC0B00E435B4 /* Alamofire */; };
+		B49288862943F50D00E435B4 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = B49288852943F50D00E435B4 /* SwiftCSV */; };
+		B49288872944017E00E435B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B49288772943EA5800E435B4 /* Assets.xcassets */; };
+		B49288932944033B00E435B4 /* pg_catalog.csv in Resources */ = {isa = PBXBuildFile; fileRef = B49288922944033B00E435B4 /* pg_catalog.csv */; };
+		B4928896294530A700E435B4 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B4928895294530A700E435B4 /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93DFB0F3A740ECD98406551A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		93DFB4920017E05C49894102 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		93DFB79F1854EC5203C31733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93DFB82440FDCC5957F3E7BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		93DFBCB3B775CBCC2B72546E /* TCReadApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCReadApp.swift; sourceTree = "<group>"; };
 		B49288702943EA5700E435B4 /* TCRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49288732943EA5700E435B4 /* TCReadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadApp.swift; sourceTree = "<group>"; };
 		B49288752943EA5700E435B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B49288772943EA5800E435B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B492887A2943EA5800E435B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B49288922944033B00E435B4 /* pg_catalog.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pg_catalog.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +41,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4928896294530A700E435B4 /* SQLite in Frameworks */,
+				B49288832943EC0B00E435B4 /* Alamofire in Frameworks */,
+				B49288862943F50D00E435B4 /* SwiftCSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93DFB7B04DEE7210F38B1DFD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				93DFB82440FDCC5957F3E7BA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		93DFBBAAFC9FAA8BD45CE6DF /* TCRead */ = {
+			isa = PBXGroup;
+			children = (
+				93DFB79F1854EC5203C31733 /* Assets.xcassets */,
+				93DFB7B04DEE7210F38B1DFD /* Preview Content */,
+				93DFBCB3B775CBCC2B72546E /* TCReadApp.swift */,
+				93DFB0F3A740ECD98406551A /* ContentView.swift */,
+			);
+			path = TCRead;
+			sourceTree = "<group>";
+		};
 		B49288672943EA5700E435B4 = {
 			isa = PBXGroup;
 			children = (
 				B49288722943EA5700E435B4 /* TCRead */,
 				B49288712943EA5700E435B4 /* Products */,
+				93DFBBAAFC9FAA8BD45CE6DF /* TCRead */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,10 +89,12 @@
 		B49288722943EA5700E435B4 /* TCRead */ = {
 			isa = PBXGroup;
 			children = (
+				B49288922944033B00E435B4 /* pg_catalog.csv */,
 				B49288732943EA5700E435B4 /* TCReadApp.swift */,
 				B49288752943EA5700E435B4 /* ContentView.swift */,
 				B49288772943EA5800E435B4 /* Assets.xcassets */,
 				B49288792943EA5800E435B4 /* Preview Content */,
+				93DFB4920017E05C49894102 /* Repository.swift */,
 			);
 			path = TCRead;
 			sourceTree = "<group>";
@@ -83,6 +123,11 @@
 			dependencies = (
 			);
 			name = TCRead;
+			packageProductDependencies = (
+				B49288822943EC0B00E435B4 /* Alamofire */,
+				B49288852943F50D00E435B4 /* SwiftCSV */,
+				B4928895294530A700E435B4 /* SQLite */,
+			);
 			productName = TCRead;
 			productReference = B49288702943EA5700E435B4 /* TCRead.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +156,11 @@
 				Base,
 			);
 			mainGroup = B49288672943EA5700E435B4;
+			packageReferences = (
+				B49288812943EC0B00E435B4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B49288842943F50D00E435B4 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+				B4928894294530A700E435B4 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+			);
 			productRefGroup = B49288712943EA5700E435B4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,8 +175,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B49288872944017E00E435B4 /* Assets.xcassets in Resources */,
 				B492887B2943EA5800E435B4 /* Preview Assets.xcassets in Resources */,
-				B49288782943EA5800E435B4 /* Assets.xcassets in Resources */,
+				B49288932944033B00E435B4 /* pg_catalog.csv in Resources */,
+				93DFB28F0C20713973F467CB /* Assets.xcassets in Resources */,
+				93DFBC477E29B168116B5E1B /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +192,9 @@
 			files = (
 				B49288762943EA5700E435B4 /* ContentView.swift in Sources */,
 				B49288742943EA5700E435B4 /* TCReadApp.swift in Sources */,
+				93DFB56887391E3D0C1882C7 /* TCReadApp.swift in Sources */,
+				93DFBDA88F1A147513EB05D4 /* ContentView.swift in Sources */,
+				93DFB810831C0910D94F0708 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +395,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B49288812943EC0B00E435B4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		B49288842943F50D00E435B4 /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftcsv/SwiftCSV";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
+		B4928894294530A700E435B4 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B49288822943EC0B00E435B4 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B49288812943EC0B00E435B4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		B49288852943F50D00E435B4 /* SwiftCSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B49288842943F50D00E435B4 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
+			productName = SwiftCSV;
+		};
+		B4928895294530A700E435B4 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4928894294530A700E435B4 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B49288682943EA5700E435B4 /* Project object */;
 }
