@@ -13,18 +13,34 @@ struct Task {
     var status: Bool
 }
 
+struct Book: Encodable {
+    var textNum: String
+    var type: String
+    var issued: String
+    var title: String
+    var language: String
+    var authors: String
+    var subjects: String
+    var locc: String
+    var bookshelves: String
+}
 
 class Repository {
 
-    static let DIR_TASK_DB = "TaskDB"
-    static let STORE_NAME = "task.sqlite3"
+    static let DIR_TASK_DB = "BookDB"
+    static let STORE_NAME = "book.sqlite3"
 
-    private let tasks = Table("tasks")
+    private let booksTable = Table("books")
 
-    private let id = Expression<Int64>("id")
-    private let taskName = Expression<String>("taskName")
-    private let date = Expression<Date>("date")
-    private let status = Expression<Bool>("status")
+    private let textNum = Expression<Int64>("textNum")
+    private let type = Expression<String>("type")
+    private let issued = Expression<Date>("issued")
+    private let title = Expression<String>("title")
+    private let language = Expression<String>("language")
+    private let authors = Expression<String>("authors")
+    private let subjects = Expression<String>("subjects")
+    private let locc = Expression<String>("locc")
+    private let bookshelves = Expression<String>("bookshelves")
 
     static let shared = Repository()
 
@@ -54,11 +70,27 @@ class Repository {
             return
         }
         do {
-            try database.run(tasks.create { table in
-                table.column(id, primaryKey: .autoincrement)
-                table.column(taskName)
-                table.column(date)
-                table.column(status)
+            /**
+private let textNum = Expression<Int64>("textNum")
+private let type = Expression<String>("type")
+private let issued = Expression<Date>("issued")
+private let title = Expression<String>("title")
+private let language = Expression<String>("language")
+private let authors = Expression<String>("authors")
+private let subjects = Expression<String>("subjects")
+private let locc = Expression<String>("locc")
+private let bookshelves = Expression<String>("bookshelves")
+             */
+            try database.run(booksTable.create { table in
+                table.column(textNum, primaryKey: .default)
+                table.column(type)
+                table.column(issued)
+                table.column(title)
+                table.column(language)
+                table.column(authors)
+                table.column(subjects)
+                table.column(locc)
+                table.column(bookshelves)
             })
             print("Table Created...")
         } catch {
@@ -66,16 +98,18 @@ class Repository {
         }
     }
 
-    func insert(name: String, date: Date) -> Int64? {
+    func insert(books: [Book]) -> Int64? {
         guard let database = db else {
             return nil
         }
 
-        let insert = tasks.insert(self.taskName <- name,
-                self.date <- date,
-                self.status <- false)
+//        let insert = booksTable.insert(self.type <- name,
+//                self.issued <- date,
+//                self.title <- false
+//        )
 
         do {
+            let insert = try booksTable.insertMany(books)
             let rowID = try database.run(insert)
             return rowID
         } catch {
@@ -84,69 +118,69 @@ class Repository {
         }
     }
 
-    func getAllTasks() -> [Task] {
-        var tasks: [Task] = []
-        guard let database = db else {
-            return []
-        }
+//    func getAllTasks() -> [Task] {
+//        var tasks: [Task] = []
+//        guard let database = db else {
+//            return []
+//        }
+//
+//        do {
+//            for task in try database.prepare(self.booksTable) {
+//                tasks.append(Task(id: task[textNum], name: task[type], date: task[issued], status: task[title]))
+//            }
+//        } catch {
+//            print(error)
+//        }
+//        return tasks
+//    }
 
-        do {
-            for task in try database.prepare(self.tasks) {
-                tasks.append(Task(id: task[id], name: task[taskName], date: task[date], status: task[status]))
-            }
-        } catch {
-            print(error)
-        }
-        return tasks
-    }
 
+//    func findTask(taskId: Int64) -> Task? {
+//        var task: Task = Task(id: taskId, name: "", date: Date(), status: false)
+//        guard let database = db else {
+//            return nil
+//        }
+//
+//        let filter = self.booksTable.filter(textNum == taskId)
+//        do {
+//            for t in try database.prepare(filter) {
+//                task.name = t[type]
+//                task.date = t[issued]
+//                task.status = t[title]
+//            }
+//        } catch {
+//            print(error)
+//        }
+//        return task
+//    }
 
-    func findTask(taskId: Int64) -> Task? {
-        var task: Task = Task(id: taskId, name: "", date: Date(), status: false)
-        guard let database = db else {
-            return nil
-        }
-
-        let filter = self.tasks.filter(id == taskId)
-        do {
-            for t in try database.prepare(filter) {
-                task.name = t[taskName]
-                task.date = t[date]
-                task.status = t[status]
-            }
-        } catch {
-            print(error)
-        }
-        return task
-    }
-
-    func update(id: Int64, name: String, date: Date = Date(), status: Bool = false) -> Bool {
-        guard let database = db else {
-            return false
-        }
-
-        let task = tasks.filter(self.id == id)
-        do {
-            let update = task.update([
-                taskName <- name,
-                self.date <- date,
-                self.status <- status
-            ])
-            if try database.run(update) > 0 {
-                return true
-            }
-        } catch {
-            print(error)
-        }
-        return false
-    }
+//    func update(id: Int64, name: String, date: Date = Date(), status: Bool = false) -> Bool {
+//        guard let database = db else {
+//            return false
+//        }
+//
+//        let task = booksTable.filter(self.textNum == id)
+//        do {
+//            let update = task.update([
+//                type <- name,
+//                self.issued <- date,
+//                self.title <- status
+//            ])
+//            if try database.run(update) > 0 {
+//                return true
+//            }
+//        } catch {
+//            print(error)
+//        }
+//        return false
+//    }
 
     func delete(id: Int64) -> Bool {
         guard let database = db else {
             return false
         }
         do {
-            let filter = tasks.filter(self.id == id)
+            let filter = booksTable.filter(self.textNum == id)
             try database.run(filter.delete())
             return true
         } catch {

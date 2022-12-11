@@ -12,37 +12,52 @@ import SwiftCSV
 
 import SQLite
 
-struct CatalogEntry {
-    var textNum: String
-    var type: String
-    var issued: String
-    var title: String
-    var language: String
-    var authors: String
-    var subjects: String
-    var locc: String
-    var bookshelves: String
-}
-
 
 struct Catalog {
     var gutenbergCatalogUrl = "https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv"
     var fm = FileManager()
+    var db = Repository.shared
 
-    func getCatalogStrings() -> ArraySlice<String> {
+    func insertCatalog() {
+        var books = catalogStringsToBooks(strings: getCatalogCsv())
+        var res = db.insert(books: books)
+        print(res)
+    }
+
+    func catalogStringsToBooks(strings: EnumeratedCSV?) -> [Book] {
+        var books: [Book] = []
+        if strings == nil {
+            return []
+        }
+        for row in strings!.rows {
+            books.append(Book(
+                    textNum: row[0],
+                    type: row[1],
+                    issued: row[2],
+                    title: row[3],
+                    language: row[4],
+                    authors: row[5],
+                    subjects: row[6],
+                    locc: row[7],
+                    bookshelves: row[8])
+            )
+        }
+        return books
+    }
+
+    func getCatalogCsv() -> EnumeratedCSV? {
         if let filepath = Bundle.main.path(forResource: "pg_catalog", ofType: "csv") {
             do {
-                let lines = try String(contentsOfFile: filepath).components(separatedBy: "\n").dropFirst()
-                return lines
+                let lines = try String(contentsOfFile: filepath)
+                let csv = try EnumeratedCSV(string: lines)
+                return csv
             } catch {
-                // contents could not be loaded
-                print("error reading file")
-                return []
+                print("error reading csv")
+                return nil
             }
         } else {
-            // example.txt not found!
             print("pg_catalog.csv file not found")
-            return []
+            return nil
         }
     }
 }
@@ -54,12 +69,7 @@ struct ContentView: SwiftUI.View {
 
     init() {
         var cat = Catalog()
-        cat.getCatalogStrings()
-//        var csv = cat.loadCsv()
-//        cat.insertCatalogToDb()
-//        var db = Repository.shared
-//        var res = db.insert(name: "hello", date: Date.now)
-//        print(res)
+        cat.insertCatalog()
 
 
     }
