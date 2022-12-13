@@ -13,6 +13,7 @@ struct BookDetailView: View {
             AsyncImage(url: URL(string: "https://www.gutenberg.org/cache/epub/\(book.textNum)/pg\(book.textNum).cover.medium.jpg"))
             Text(book.title).fontWeight(.heavy)
             Divider()
+
             Text("Send to kindle")//todo: add button to send to kindle
         }
     }

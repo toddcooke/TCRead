@@ -147,7 +147,7 @@ class BookRepository {
             books.append(Book(
                     textNum: Int(row[0])!,
                     type: row[1],
-                    issued: ContentView.bookDateFormatter.date(from: row[2])!,
+                    issued: TCReadApp.bookDateFormatter.date(from: row[2])!,
                     title: row[3],
                     language: row[4],
                     authors: row[5],

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		93DFB28F0C20713973F467CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DFB79F1854EC5203C31733 /* Assets.xcassets */; };
 		93DFB56887391E3D0C1882C7 /* TCReadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DFBCB3B775CBCC2B72546E /* TCReadApp.swift */; };
+		93DFB7235A89BA4CB123790F /* BookSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DFBD419036C0F26ACE77DB /* BookSearchView.swift */; };
 		93DFB810831C0910D94F0708 /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DFB4920017E05C49894102 /* BookRepository.swift */; };
 		93DFBB595E26E72195E94B0C /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DFB7C1E17F25DCE5ED87E0 /* BookDetailView.swift */; };
 		93DFBC477E29B168116B5E1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DFB82440FDCC5957F3E7BA /* Preview Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		93DFB7C1E17F25DCE5ED87E0 /* BookDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		93DFB82440FDCC5957F3E7BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		93DFBCB3B775CBCC2B72546E /* TCReadApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCReadApp.swift; sourceTree = "<group>"; };
+		93DFBD419036C0F26ACE77DB /* BookSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSearchView.swift; sourceTree = "<group>"; };
 		B45CCB012948DC4800F1E6DB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B49288702943EA5700E435B4 /* TCRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49288732943EA5700E435B4 /* TCReadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadApp.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				93DFB7C1E17F25DCE5ED87E0 /* BookDetailView.swift */,
+				93DFBD419036C0F26ACE77DB /* BookSearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				93DFBDA88F1A147513EB05D4 /* ContentView.swift in Sources */,
 				93DFB810831C0910D94F0708 /* BookRepository.swift in Sources */,
 				93DFBB595E26E72195E94B0C /* BookDetailView.swift in Sources */,
+				93DFB7235A89BA4CB123790F /* BookSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
