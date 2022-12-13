@@ -6,51 +6,44 @@
 //
 
 import SwiftUI
-import Alamofire
-
-import SwiftCSV
-
-import SQLite
-
 
 struct ContentView: SwiftUI.View {
     @State private var searchText = ""
-    let names = ["Holly", "Josh", "Rhonda", "Ted"]
-    var repo = Repository.shared
+    var bookRepo = BookRepository.shared
+    static let bookDateFormatter = DateFormatter()
 
     init() {
-        if repo.getBooksById([1]).isEmpty {
-            let books = repo.catalogStringsToBooks(strings: repo.getCatalogCsv())
-            _ = repo.insert(books: books)
+        ContentView.bookDateFormatter.dateFormat = "YYYY/MM/dd"
+        if bookRepo.getBooksById([1]).isEmpty {
+            let books = bookRepo.catalogStringsToBooks(strings: bookRepo.getCatalogCsv())
+            _ = bookRepo.insert(books: books)
         } else {
             print("book table already created")
         }
     }
 
-
     var body: some SwiftUI.View {
         NavigationStack {
             List {
-                ForEach(searchResults, id: \.self) { name in
+                ForEach(searchResults, id: \.self) { book in
                     NavigationLink {
-                        Text(name)
+                        BookDetailView(book: book)
                     } label: {
-                        Text(name)
+                        Text(book.title)
                     }
                 }
             }
-                    .navigationTitle("Contacts")
+                    .navigationTitle("Gutenberg search")
         }
                 .searchable(text: $searchText)
     }
 
-    var searchResults: [String] {
+    var searchResults: [Book] {
         if searchText.isEmpty {
             return []
+//        return bookRepo.getBooksById([1])
         } else {
-            return repo.getBooksByTitle(searchText).map { element in
-                element.title
-            }
+            return bookRepo.getBooksByTitle(searchText)
         }
     }
 }

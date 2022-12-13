@@ -7,50 +7,10 @@ import SQLite
 
 import SwiftCSV
 
-
-struct Book: Encodable {
-    var textNum: Int
-    var type: String
-    var issued: Date
-    var title: String
-    var language: String
-    var authors: String
-    var subjects: String
-    var locc: String
-    var bookshelves: String
-
-
-}
-
-//    init(textNum: Int, type: String, issued: Date, title: String, language: String, authors: String, subjects: String, locc: String, bookshelves: String) {
-
-//        self.textNum = textNum
-//        self.type = type
-//        self.issued = issued
-//        self.title = title
-//        self.language = language
-//        self.authors = authors
-//        self.subjects = subjects
-//        self.locc = locc
-//        self.bookshelves = bookshelves
-//    }
-
-//        self.textNum = 0
-//        self.type = ""
-//        self.issued = Date.now
-//        self.title = ""
-//        self.language = ""
-//        self.authors = ""
-//        self.subjects = ""
-//        self.locc = ""
-//        self.bookshelves = ""
-//    }
-
-
-class Repository {
+class BookRepository {
     static let DIR_TASK_DB = "BookDB"
     static let STORE_NAME = "book.sqlite3"
-    static let shared = Repository()
+    static let shared = BookRepository()
 
     private let booksTable = Table("books")
     private let textNum = Expression<Int>("textNum")
@@ -183,13 +143,11 @@ class Repository {
         if strings == nil {
             return []
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY/MM/dd"
         for row in strings!.rows {
             books.append(Book(
                     textNum: Int(row[0])!,
                     type: row[1],
-                    issued: dateFormatter.date(from: row[2])!,
+                    issued: ContentView.bookDateFormatter.date(from: row[2])!,
                     title: row[3],
                     language: row[4],
                     authors: row[5],
