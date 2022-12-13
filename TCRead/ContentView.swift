@@ -21,8 +21,7 @@ struct ContentView: SwiftUI.View {
     init() {
         if repo.getBooksById([1]).isEmpty {
             let books = repo.catalogStringsToBooks(strings: repo.getCatalogCsv())
-            let res = repo.insert(books: books)
-            print(res)
+            _ = repo.insert(books: books)
         } else {
             print("book table already created")
         }

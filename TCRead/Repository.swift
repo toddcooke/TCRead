@@ -141,14 +141,15 @@ class Repository {
             return []
         }
         do {
-            let filter = booksTable.filter(titles.contains(title))
+            let filter = titles.reduce(booksTable) { (table, string) in
+                table.filter(title.like("\(string)%"))
+            }.limit(50)
             for row in try database.prepare(filter) {
                 books.append(toBook(row: row))
             }
         } catch {
             print(error)
         }
-        print("books by title",books)
         return books
     }
 
