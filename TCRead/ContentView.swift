@@ -7,14 +7,36 @@
 
 import SwiftUI
 
-struct ContentView: SwiftUI.View {
-    var body: some SwiftUI.View {
-        BookSearchView()
+struct ContentView: View {
+    @State private var selection: Tab = .bookSearch
+
+    enum Tab {
+        case bookSearch
+        case ereaderConfig
+    }
+
+//    var body: some View {
+
+//        BookSearchView()
+//    }
+    var body: some View {
+        TabView(selection: $selection) {
+            BookSearchView()
+                    .tabItem {
+                        Label("Book Search", systemImage: "book")
+                    }
+                    .tag(Tab.bookSearch)
+            EreaderConfigView()
+                    .tabItem {
+                        Label("E-reader Config", systemImage: "gear")
+                    }
+                    .tag(Tab.ereaderConfig)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some SwiftUI.View {
+    static var previews: some View {
         ContentView()
     }
 }
