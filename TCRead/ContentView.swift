@@ -48,12 +48,9 @@ struct ContentView: SwiftUI.View {
         if searchText.isEmpty {
             return []
         } else {
-            return repo.getBooksByTitle(titles: searchText.components(separatedBy: " ")).map { element in
+            return repo.getBooksByTitle(searchText).map { element in
                 element.title
             }
-//            return names.filter {
-//                $0.contains(searchText)
-//            }
         }
     }
 }

@@ -48,12 +48,11 @@ struct Book: Encodable {
 
 
 class Repository {
-
     static let DIR_TASK_DB = "BookDB"
     static let STORE_NAME = "book.sqlite3"
+    static let shared = Repository()
 
     private let booksTable = Table("books")
-
     private let textNum = Expression<Int>("textNum")
     private let type = Expression<String>("type")
     private let issued = Expression<Date>("issued")
@@ -64,14 +63,11 @@ class Repository {
     private let locc = Expression<String>("locc")
     private let bookshelves = Expression<String>("bookshelves")
 
-    static let shared = Repository()
-
     private var db: Connection? = nil
 
     private init() {
         if let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let dirPath = docDir.appendingPathComponent(Self.DIR_TASK_DB)
-
             do {
                 try FileManager.default.createDirectory(atPath: dirPath.path, withIntermediateDirectories: true, attributes: nil)
                 let dbPath = dirPath.appendingPathComponent(Self.STORE_NAME).path
@@ -135,15 +131,13 @@ class Repository {
         }
     }
 
-    func getBooksByTitle(titles: [String]) -> [Book] {
+    func getBooksByTitle(_ t: String) -> [Book] {
         var books: [Book] = []
         guard let database = db else {
             return []
         }
         do {
-            let filter = titles.reduce(booksTable) { (table, string) in
-                table.filter(title.like("\(string)%"))
-            }.limit(50)
+            let filter = booksTable.filter(title.like("\(t)%")).limit(50)
             for row in try database.prepare(filter) {
                 books.append(toBook(row: row))
             }
@@ -183,42 +177,6 @@ class Repository {
         }
         return books
     }
-
-//    func update(id: Int64, name: String, date: Date = Date(), status: Bool = false) -> Bool {
-
-//        guard let database = db else {
-//            return false
-//        }
-//
-//        let task = booksTable.filter(self.textNum == id)
-//        do {
-//            let update = task.update([
-//                type <- name,
-//                self.issued <- date,
-//                self.title <- status
-//            ])
-//            if try database.run(update) > 0 {
-//                return true
-//            }
-//        } catch {
-//            print(error)
-//        }
-//        return false
-//    }
-
-//    func delete(id: Int64) -> Bool {
-//        guard let database = db else {
-//            return false
-//        }
-//        do {
-//            let filter = booksTable.filter(self.textNum == id)
-//            try database.run(filter.delete())
-//            return true
-//        } catch {
-//            print(error)
-//            return false
-//        }
-//    }
 
     func catalogStringsToBooks(strings: EnumeratedCSV?) -> [Book] {
         var books: [Book] = []
