@@ -15,10 +15,6 @@ struct ContentView: View {
         case ereaderConfig
     }
 
-//    var body: some View {
-
-//        BookSearchView()
-//    }
     var body: some View {
         TabView(selection: $selection) {
             BookSearchView()
@@ -38,5 +34,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ModelData())
     }
 }

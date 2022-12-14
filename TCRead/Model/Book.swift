@@ -18,8 +18,8 @@ struct Book: Encodable, Hashable {
     var locc: String
     var bookshelves: String
 
-//    func bookItems() -> Array<some Identifiable> {
-//        [String(textNum), type, ContentView.bookDateFormatter.string(from: issued), title, language, authors, subjects, locc, bookshelves].id
-//    }
 
+   static func exampleBook() ->Book {
+        Book(textNum: 0, type: "book", issued: Date.now, title: "Alice in wonderland", language: "en", authors: "Lewis Carrol", subjects: "Fiction", locc: "PR", bookshelves: "Childrens Literature")
+    }
 }

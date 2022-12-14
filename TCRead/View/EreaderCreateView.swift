@@ -22,19 +22,11 @@ struct EreaderCreateView: View {
     }
 
     var body: some View {
-        List {
-            HStack {
-                Text("Ereader name").bold()
-                Divider()
-                TextField("EReader Name", text: $ereader.name)
-            }
-            HStack {
-                Text("Ereader type").bold()
-                Divider()
-                Picker("E reader type", selection: $selectedType) {
-                    Text("Amazon Kindle").tag(EReaderType.KINDLE)
-                    Text("Kobo").tag(EReaderType.KOBO)
-                }
+        Form {
+            TextField("EReader Name", text: $ereader.name)
+            Picker("E reader type", selection: $selectedType) {
+                Text("Amazon Kindle").tag(EReaderType.KINDLE)
+                Text("Kobo").tag(EReaderType.KOBO)
             }
             Button("Create") {
                 submit()
@@ -44,7 +36,13 @@ struct EreaderCreateView: View {
                             emptyEreaderName = false
                         }
                     }
-        }
-                .padding()
+        }.navigationTitle("Add E-Reader")
+    }
+}
+
+struct EreaderCreateView_Previews: PreviewProvider {
+    static var previews: some View {
+        EreaderCreateView(ereader: .constant(EReader.exampleEReader()))
+            .environmentObject(ModelData())
     }
 }

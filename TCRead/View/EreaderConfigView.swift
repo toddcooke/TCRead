@@ -22,8 +22,6 @@ struct EreaderConfigView: View {
                     .sheet(isPresented: $showingSheet) {
                         EreaderCreateView(ereader: $ereaderNew)
                     }
-
-            // list ereaders
             ForEach(modelData.eReaders) { eReader in
                 NavigationLink {
                     EreaderConfigDetailView(ereader: eReader)
@@ -38,5 +36,6 @@ struct EreaderConfigView: View {
 struct EreaderConfigView_Previews: PreviewProvider {
     static var previews: some View {
         EreaderConfigView()
+            .environmentObject(ModelData())
     }
 }
