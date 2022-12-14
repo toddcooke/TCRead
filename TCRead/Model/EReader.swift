@@ -6,6 +6,7 @@ import Foundation
 
 enum EReaderType {
     case KINDLE
+    case KOBO
 }
 
 struct EReader: Identifiable {

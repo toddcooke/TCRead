@@ -6,4 +6,9 @@ import Foundation
 
 final class ModelData: ObservableObject {
     @Published var eReaders: [EReader] = []
+
+    func addEreader(ereader: EReader) {
+        // TODO: save ereader to icloud
+        eReaders.append(ereader)
+    }
 }

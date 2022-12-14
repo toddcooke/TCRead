@@ -12,21 +12,21 @@ import SwiftUI
 
 struct EreaderConfigView: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var ereader = EReader()
-
+    @State private var ereaderNew = EReader(name: "", ereaderType: EReaderType.KINDLE)
+    @State private var showingSheet = false
     var body: some View {
         VStack {
-            NavigationStack {
-                NavigationLink {
-                    EreaderConfigDetailView()
-                } label: {
-                    Text("Setup new E-reader")
-                }
+            Button("Set up new E-Reader") {
+                showingSheet.toggle()
             }
+                    .sheet(isPresented: $showingSheet) {
+                        EreaderCreateView(ereader: $ereaderNew)
+                    }
+
             // list ereaders
             ForEach(modelData.eReaders) { eReader in
                 NavigationLink {
-                    EreaderConfigDetailView(ereader: $eReader)
+                    EreaderConfigDetailView(ereader: eReader)
                 } label: {
                     Text(eReader.name)
                 }

@@ -6,12 +6,10 @@ import Foundation
 import SwiftUI
 
 struct EreaderConfigDetailView: View {
-    @Binding var ereader: EReader
+    var ereader: EReader
     var body: some View {
         VStack {
-            // If ereader == nil:
             Text("EReader name:").bold()
-            TextField("EReader Name", text: $ereader.name)
         }
     }
 }
