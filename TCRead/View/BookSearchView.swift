@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct BookSearchView: SwiftUI.View {
+struct BookSearchView: View {
     var bookRepo = BookRepository.shared
     @State private var searchText = ""
 
@@ -13,7 +13,22 @@ struct BookSearchView: SwiftUI.View {
         }
     }
 
-    var body: some SwiftUI.View {
+    let colors: [Color] = [.purple, .pink, .orange]
+    @State private var selection: Color? = nil // Nothing selected by default.
+    var body: some View {
+        #if os(macOS)
+        NavigationSplitView {
+            List(colors, id: \.self, selection: $selection) { color in
+                NavigationLink(color.description, value: color)
+            }
+        } detail: {
+            if let color = selection {
+                Text("nice: " + color.description)
+            } else {
+                Text("Pick a color")
+            }
+        }
+        #else
         NavigationStack {
             List {
                 ForEach(searchResults, id: \.self) { book in
@@ -24,9 +39,10 @@ struct BookSearchView: SwiftUI.View {
                     }
                 }
             }
-                    .navigationTitle("Gutenberg search")
+                    .navigationTitle("Book search")
         }
                 .searchable(text: $searchText)
+        #endif
     }
 
     var searchResults: [Book] {
@@ -40,7 +56,7 @@ struct BookSearchView: SwiftUI.View {
 }
 
 struct BookSearchView_Previews: PreviewProvider {
-    static var previews: some SwiftUI.View {
+    static var previews: some View {
         BookSearchView()
     }
 }
