@@ -9,25 +9,26 @@ import Alamofire
 
 struct BookDetailView: View {
     var book: Book
-    @State private var bookDownloaded: Data? = nil
+    @State private var bookData: Data? = nil
+    @State private var sendMail: Bool = false
+
     var body: some View {
         VStack {
             AsyncImage(url: URL(string: "https://www.gutenberg.org/cache/epub/\(book.textNum)/pg\(book.textNum).cover.medium.jpg"))
             Text(book.title).fontWeight(.heavy)
+            Text(book.authors).fontWeight(.heavy)
             Divider()
-
-//            Text("Send to \(S.ereader)")//todo: add button to send to kindle
-
             Button("Send to \(S.ereader)") {
-                downloadEbook(url: URL(string: "https://www.gutenberg.org/ebooks/11.epub3.images")!)
-            }
-            if bookDownloaded != nil {
-                ShareLink(item: "", subject: Text("subject text")) {
-                    Label("Learn Swift here", systemImage: "book")
+                if bookData == nil {
+                    downloadEbook(url: URL(string: "https://www.gutenberg.org/ebooks/\(book.textNum).epub3.images")!)
+                }else{
+                    sendMail = true
                 }
-//                ShareLink(items: bookDownloaded!,subject: Text("subject text")) {
-//                    Label("Learn Swift here", systemImage: "book")
-//                }
+            }.sheet(isPresented: $sendMail){
+                MailView(content: "content", to: "toddcookevt@gmail.com", subject: "subject")
+                    .onDisappear{
+                        sendMail = false
+                    }
             }
         }
     }
@@ -39,7 +40,8 @@ struct BookDetailView: View {
                 }
                 .responseData { response in
                     if let data = response.value {
-                        bookDownloaded = data
+                        bookData = data
+                        sendMail = true
                     } else {
                         print("Response error:" + response.description)
                     }
@@ -47,16 +49,9 @@ struct BookDetailView: View {
     }
 }
 
-//func sendEmail(to recipients: [String], subject: String, body: String) {
-//    let service = NSSharingService(named: .composeEmail)!
-//    service.recipients = recipients
-//    service.subject = subject
-//    service.perform(withItems: [body])
-//}
-
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
         BookDetailView(book: Book.exampleBook())
-                .environmentObject(ModelData())
+                .environmentObject(ModelData().withExampleEreader())
     }
 }

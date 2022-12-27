@@ -12,4 +12,9 @@ final class ModelData: ObservableObject {
         // TODO: save ereader to icloud
         eReaders.append(ereader)
     }
+    
+    func withExampleEreader()->ModelData{
+        eReaders.append(EReader.exampleEReader())
+        return self
+    }
 }

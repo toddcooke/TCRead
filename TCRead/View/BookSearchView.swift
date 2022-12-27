@@ -16,33 +16,22 @@ struct BookSearchView: View {
     let colors: [Color] = [.purple, .pink, .orange]
     @State private var selection: Color? = nil // Nothing selected by default.
     var body: some View {
-        #if os(macOS)
-        NavigationSplitView {
-            List(colors, id: \.self, selection: $selection) { color in
-                NavigationLink(color.description, value: color)
-            }
-        } detail: {
-            if let color = selection {
-                Text("nice: " + color.description)
-            } else {
-                Text("Pick a color")
-            }
-        }
-        #else
         NavigationStack {
             List {
                 ForEach(searchResults, id: \.self) { book in
                     NavigationLink {
                         BookDetailView(book: book)
                     } label: {
-                        Text(book.title)
+                        VStack{
+                            Text(book.title).bold()
+                            Text(book.authors)
+                        }
                     }
                 }
             }
                     .navigationTitle("Book search")
         }
                 .searchable(text: $searchText)
-        #endif
     }
 
     var searchResults: [Book] {
