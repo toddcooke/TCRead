@@ -22,15 +22,6 @@ jobs:
         # Default: '.'
         add: 'books.db'
 
-        # The local path to the directory where your repository is located. You should use actions/checkout first to set it up.
-        # Default: '.'
-        # cwd: './path/to/the/repo'
-
-        # Arguments for the git fetch command. If set to false, the action won't fetch the repo.
-        # For more info as to why fetching is usually recommended, please see the "Performance on large repos" FAQ. 
-        # Default: --tags --force
-        # fetch: false
-
         # The message for the commit.
         # Default: 'Commit from GitHub Actions (name of the workflow)'
         message: 'Update book sqlite table'
@@ -44,8 +35,5 @@ jobs:
 
         # Arguments for the git pull command. By default, the action does not pull.
         # Default: ''
-        # pull: '--rebase --autostash ...'
-
-        # Arguments for the git push --tags command (any additional argument will be added after --tags)
-        # Default: ''
-        # tag_push: '--force'
+        pull: '--rebase --autostash ...'
+        
