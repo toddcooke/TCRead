@@ -1,6 +1,9 @@
 name: Update book sqlite db
 
-on: push
+#on: push
+on:
+  schedule:
+    - cron: '0 5 * * 0'
 
 jobs:
   build:
