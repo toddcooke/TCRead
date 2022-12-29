@@ -1,4 +1,4 @@
-name: Caching Primes
+name: Update book sqlite db
 
 on: push
 
