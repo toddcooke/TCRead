@@ -14,21 +14,24 @@ struct BookDetailView: View {
 
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: "https://www.gutenberg.org/cache/epub/\(book.textNum)/pg\(book.textNum).cover.medium.jpg"))
-            Text(book.title).fontWeight(.heavy)
-            Text(book.authors).fontWeight(.heavy)
-            Divider()
-            Button("Send to \(S.ereader)") {
-                if bookData == nil {
-                    downloadEbook(url: URL(string: "https://www.gutenberg.org/ebooks/\(book.textNum).epub3.images")!)
-                }else{
-                    sendMail = true
+            AsyncImage(url: URL(string: "https://www.gutenberg.org/cache/epub/\(book.textNum)/pg\(book.textNum).cover.medium.jpg")) { image in
+                image.aspectRatio(contentMode: .fill)
+            } placeholder: {
+                ProgressView()
+            }.padding()
+            Text(book.title).bold()
+            Text(book.authors)
+            if let bookData {
+                Button("Send to \(S.ereader)") {
+                    sendMail.toggle()
+                }.padding()
+                .sheet(isPresented: $sendMail){
+                    MailBookView( to: "toddcookevt@gmail.com", bookTitle: book.title, attachment: bookData)
                 }
-            }.sheet(isPresented: $sendMail){
-                MailView(content: "content", to: "toddcookevt@gmail.com", subject: "subject")
-                    .onDisappear{
-                        sendMail = false
-                    }
+            }else{
+                Button("Download book"){
+                    downloadEbook(url: URL(string: "https://www.gutenberg.org/ebooks/\(book.textNum).epub3.images")!)
+                }.padding()
             }
         }
     }
@@ -52,6 +55,6 @@ struct BookDetailView: View {
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
         BookDetailView(book: Book.exampleBook())
-                .environmentObject(ModelData().withExampleEreader())
+                .environmentObject(ModelData())
     }
 }

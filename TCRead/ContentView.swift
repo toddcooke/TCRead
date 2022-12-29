@@ -16,18 +16,7 @@ struct ContentView: View {
     }
 
     var body: some View {
-        TabView(selection: $selection) {
-            BookSearchView()
-                    .tabItem {
-                        Label("Book Search", systemImage: "book")
-                    }
-                    .tag(Tab.bookSearch)
-            EreaderConfigView()
-                    .tabItem {
-                        Label("E-reader Config", systemImage: "gear")
-                    }
-                    .tag(Tab.ereaderConfig)
-        }
+        BookSearchView()
     }
 }
 
