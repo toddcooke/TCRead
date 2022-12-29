@@ -2,11 +2,11 @@ import SwiftUI
 import MessageUI
 
 // https://github.com/egesucu/SendMailApp
-struct MailView : UIViewControllerRepresentable{
+struct MailBookView : UIViewControllerRepresentable{
     
-    var content: String
     var to: String
-    var subject: String
+    var bookTitle: String
+    var attachment: Data
     
     typealias UIViewControllerType = MFMailComposeViewController
     
@@ -18,9 +18,9 @@ struct MailView : UIViewControllerRepresentable{
         if MFMailComposeViewController.canSendMail(){
             let view = MFMailComposeViewController()
             view.mailComposeDelegate = context.coordinator
-            view.setToRecipients([to])
-            view.setSubject(subject)
-            view.setMessageBody(content, isHTML: false)
+//            view.setToRecipients([to])
+            view.setSubject(bookTitle)
+            view.addAttachmentData(attachment, mimeType: "epub+zip", fileName: bookTitle)
             return view
         } else {
             return MFMailComposeViewController()
@@ -34,18 +34,14 @@ struct MailView : UIViewControllerRepresentable{
     
     class Coordinator : NSObject, MFMailComposeViewControllerDelegate{
         
-        var parent : MailView
+        var parent : MailBookView
         
-        init(_ parent: MailView){
+        init(_ parent: MailBookView){
             self.parent = parent
         }
         
         func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
             controller.dismiss(animated: true)
         }
-        
-       
     }
-    
-    
 }

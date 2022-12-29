@@ -12,9 +12,12 @@ struct BookSearchView: View {
             print("book table already created")
         }
     }
+    
+    init(preview:Bool){
+        _ = bookRepo.insert(books: [Book.exampleBook()])
+        searchText = "alice"
+    }
 
-    let colors: [Color] = [.purple, .pink, .orange]
-    @State private var selection: Color? = nil // Nothing selected by default.
     var body: some View {
         NavigationStack {
             List {
@@ -46,6 +49,6 @@ struct BookSearchView: View {
 
 struct BookSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        BookSearchView()
+        BookSearchView(preview: true)
     }
 }
