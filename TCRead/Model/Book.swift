@@ -8,9 +8,9 @@
 import Foundation
 
 struct Book: Encodable, Hashable {
-    var textNum: Int
+    var textNum: String
     var type: String
-    var issued: Date
+    var issued: String
     var title: String
     var language: String
     var authors: String
@@ -20,6 +20,7 @@ struct Book: Encodable, Hashable {
 
 
    static func exampleBook() ->Book {
-        Book(textNum: 0, type: "book", issued: Date.now, title: "Alice in wonderland", language: "en", authors: "Lewis Carrol", subjects: "Fiction", locc: "PR", bookshelves: "Childrens Literature")
+       Book(textNum: "0", type: "book", issued: Date.now.description,
+            title: "Alice in wonderland", language: "en", authors: "Lewis Carrol", subjects: "Fiction", locc: "PR", bookshelves: "Childrens Literature")
     }
 }
