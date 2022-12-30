@@ -18,10 +18,9 @@
 		B47350AA29574F290082F86B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47350A929574F290082F86B /* Strings.swift */; };
 		B49288762943EA5700E435B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49288752943EA5700E435B4 /* ContentView.swift */; };
 		B49288832943EC0B00E435B4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B49288822943EC0B00E435B4 /* Alamofire */; };
-		B49288862943F50D00E435B4 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = B49288852943F50D00E435B4 /* SwiftCSV */; };
-		B49288932944033B00E435B4 /* pg_catalog.csv in Resources */ = {isa = PBXBuildFile; fileRef = B49288922944033B00E435B4 /* pg_catalog.csv */; };
 		B4928896294530A700E435B4 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B4928895294530A700E435B4 /* SQLite */; };
 		B49A81E3295B4EAA00109DE5 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49A81E2295B4EAA00109DE5 /* EmailView.swift */; };
+		B49A823F295F39F200109DE5 /* book.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = B49A823E295F39F200109DE5 /* book.sqlite3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +35,8 @@
 		B47350A929574F290082F86B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		B49288702943EA5700E435B4 /* TCRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49288752943EA5700E435B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B49288922944033B00E435B4 /* pg_catalog.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pg_catalog.csv; sourceTree = "<group>"; };
 		B49A81E2295B4EAA00109DE5 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
+		B49A823E295F39F200109DE5 /* book.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = book.sqlite3; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +46,6 @@
 			files = (
 				B4928896294530A700E435B4 /* SQLite in Frameworks */,
 				B49288832943EC0B00E435B4 /* Alamofire in Frameworks */,
-				B49288862943F50D00E435B4 /* SwiftCSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,8 +63,8 @@
 		93DFBBAAFC9FAA8BD45CE6DF /* TCRead */ = {
 			isa = PBXGroup;
 			children = (
+				B49A823E295F39F200109DE5 /* book.sqlite3 */,
 				B49A823B295E197800109DE5 /* Repository */,
-				B49288922944033B00E435B4 /* pg_catalog.csv */,
 				B45CCB002948DC2A00F1E6DB /* Model */,
 				B45CCB032948DC6000F1E6DB /* View */,
 				B47350A829574F190082F86B /* Util */,
@@ -147,7 +145,6 @@
 			name = TCRead;
 			packageProductDependencies = (
 				B49288822943EC0B00E435B4 /* Alamofire */,
-				B49288852943F50D00E435B4 /* SwiftCSV */,
 				B4928895294530A700E435B4 /* SQLite */,
 			);
 			productName = TCRead;
@@ -180,7 +177,6 @@
 			mainGroup = B49288672943EA5700E435B4;
 			packageReferences = (
 				B49288812943EC0B00E435B4 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				B49288842943F50D00E435B4 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
 				B4928894294530A700E435B4 /* XCRemoteSwiftPackageReference "SQLite" */,
 			);
 			productRefGroup = B49288712943EA5700E435B4 /* Products */;
@@ -197,7 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B49288932944033B00E435B4 /* pg_catalog.csv in Resources */,
+				B49A823F295F39F200109DE5 /* book.sqlite3 in Resources */,
 				93DFB28F0C20713973F467CB /* Assets.xcassets in Resources */,
 				93DFBC477E29B168116B5E1B /* Preview Assets.xcassets in Resources */,
 			);
@@ -429,14 +425,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		B49288842943F50D00E435B4 /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/swiftcsv/SwiftCSV";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.8.1;
-			};
-		};
 		B4928894294530A700E435B4 /* XCRemoteSwiftPackageReference "SQLite" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
@@ -452,11 +440,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B49288812943EC0B00E435B4 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		B49288852943F50D00E435B4 /* SwiftCSV */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B49288842943F50D00E435B4 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
-			productName = SwiftCSV;
 		};
 		B4928895294530A700E435B4 /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;

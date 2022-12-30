@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct TCReadApp: App {
-    static let bookDateFormatter = DateFormatter()
+    static var bookDateFormatter = DateFormatter()
     @StateObject private var modelData = ModelData()
-
+    
     init() {
         TCReadApp.bookDateFormatter.dateFormat = "YYYY/MM/dd"
     }
