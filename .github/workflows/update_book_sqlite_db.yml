@@ -21,7 +21,7 @@ jobs:
         echo verifying that db was created successfully
         sqlite3 book.sqlite3.temp "select * from books limit 10;" ".exit"
         [ $? -eq 0 ] || exit 1 
-        rm book.sqlite
+        rm -f book.sqlite
         mv book.sqlite3.temp book.sqlite3
         rm pg_catalog.csv
     - name: Commit and push if it changed
