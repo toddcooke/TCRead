@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Book: Encodable, Hashable {
+struct Book: Encodable, Hashable, Identifiable {
+    var id :String {
+        textNum
+    }
+
     var textNum: String
     var type: String
     var issued: String
@@ -19,8 +23,8 @@ struct Book: Encodable, Hashable {
     var bookshelves: String
 
 
-   static func exampleBook() ->Book {
-       Book(textNum: "0", type: "book", issued: Date.now.description,
+    static func exampleBook() -> Book {
+        Book(textNum: "0", type: "book", issued: Date.now.description,
             title: "Alice in wonderland", language: "en", authors: "Lewis Carrol", subjects: "Fiction", locc: "PR", bookshelves: "Childrens Literature")
     }
 }
