@@ -56,6 +56,7 @@ struct BookDetailView: View {
                             Button("Dismiss", action: { sendMail.toggle() })
                         }
                     } else {
+                        // Doesn't work on ios simulator
                         MailBookView(to: modelData.kindleEmail!, bookTitle: book.title, attachment: bookData)
                     }
                 }

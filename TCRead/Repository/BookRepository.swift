@@ -5,8 +5,6 @@
 import Foundation
 import SQLite
 
-import SwiftCSV
-
 class BookRepository {
     static let shared = BookRepository()
 
