@@ -21,6 +21,7 @@
 		B4928896294530A700E435B4 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B4928895294530A700E435B4 /* SQLite */; };
 		B49A81E3295B4EAA00109DE5 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49A81E2295B4EAA00109DE5 /* EmailView.swift */; };
 		B49A823F295F39F200109DE5 /* book.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = B49A823E295F39F200109DE5 /* book.sqlite3 */; };
+		B49A82412962249500109DE5 /* UserDefaultsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49A82402962249500109DE5 /* UserDefaultsRepo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		B49288752943EA5700E435B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B49A81E2295B4EAA00109DE5 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		B49A823E295F39F200109DE5 /* book.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = book.sqlite3; sourceTree = SOURCE_ROOT; };
+		B49A82402962249500109DE5 /* UserDefaultsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				B45CCB012948DC4800F1E6DB /* Book.swift */,
-				93DFB9F1506D795C8F21FC20 /* ModelData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,7 +123,9 @@
 		B49A823B295E197800109DE5 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				93DFB9F1506D795C8F21FC20 /* ModelData.swift */,
 				93DFB4920017E05C49894102 /* BookRepository.swift */,
+				B49A82402962249500109DE5 /* UserDefaultsRepo.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				B49288762943EA5700E435B4 /* ContentView.swift in Sources */,
 				B45CCB022948DC4800F1E6DB /* Book.swift in Sources */,
+				B49A82412962249500109DE5 /* UserDefaultsRepo.swift in Sources */,
 				93DFB56887391E3D0C1882C7 /* TCReadApp.swift in Sources */,
 				93DFB810831C0910D94F0708 /* BookRepository.swift in Sources */,
 				B47350AA29574F290082F86B /* Strings.swift in Sources */,
