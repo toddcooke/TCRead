@@ -9,8 +9,19 @@ import Alamofire
 
 struct BookDetailView: View {
     var book: Book
+    @EnvironmentObject var modelData: ModelData
     @State private var bookData: Data? = nil
     @State private var sendMail: Bool = false
+    @State var kindleEmailInput: String = ""
+
+    func onSubmitEmail() {
+        guard isValidEmail(kindleEmailInput) else {
+            modelData.showErrorMessage.toggle()
+            return
+        }
+        modelData.setKindleEmail(kindleEmailInput)
+        sendMail.toggle()
+    }
 
     var body: some View {
         VStack {
@@ -18,43 +29,71 @@ struct BookDetailView: View {
                 image.aspectRatio(contentMode: .fill)
             } placeholder: {
                 ProgressView()
-            }.padding()
+            }
+            .padding()
             Text(book.title).bold()
             Text(book.authors)
+
             if let bookData {
                 Button("Send to \(S.ereader)") {
                     sendMail.toggle()
-                }.padding()
-                .sheet(isPresented: $sendMail){
-                    MailBookView( to: "toddcookevt@gmail.com", bookTitle: book.title, attachment: bookData)
                 }
-            }else{
-                Button("Download book"){
+                .padding()
+                .sheet(isPresented: $sendMail) {
+                    if modelData.kindleEmail == nil {
+                        Text("What is your kindle email?").bold()
+                        Text("Not sure? Start here: https://www.amazon.com/sendtokindle/email")
+                        TextField(
+                            "Kindle email",
+                            text: $kindleEmailInput
+                        ).padding()
+                        .onSubmit(onSubmitEmail)
+                        .alert(isPresented: $modelData.showErrorMessage) {
+                            Alert(title: Text("Invalid email"), message: Text("Please use an email like this: alice@kindle.com"))
+                        }
+                        HStack{
+                            Button("Submit", action: onSubmitEmail)
+                            Button("Dismiss", action: { sendMail.toggle() })
+                        }
+                    } else {
+                        MailBookView(to: modelData.kindleEmail!, bookTitle: book.title, attachment: bookData)
+                    }
+                }
+            } else {
+                Button("Download book") {
                     downloadEbook(url: URL(string: "https://www.gutenberg.org/ebooks/\(book.textNum).epub3.images")!)
-                }.padding()
+                }
+                .padding()
             }
         }
     }
 
     func downloadEbook(url: URL) {
         AF.download(url)
-                .downloadProgress { progress in
-                    print("Download Progress: \(progress.fractionCompleted)")
-                }
-                .responseData { response in
-                    if let data = response.value {
-                        bookData = data
-                        sendMail = true
-                    } else {
-                        print("Response error:" + response.description)
-                    }
-                }
+        .downloadProgress { progress in
+            print("Download Progress: \(progress.fractionCompleted)")
+        }
+        .responseData { response in
+            if let data = response.value {
+                bookData = data
+                sendMail = true
+            } else {
+                print("Response error:" + response.description)
+            }
+        }
     }
 }
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
         BookDetailView(book: Book.exampleBook())
-                .environmentObject(ModelData())
+        .environmentObject(ModelData())
     }
+}
+
+// https://stackoverflow.com/a/25471164/3569329
+func isValidEmail(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+    return email.hasSuffix("@kindle.com") && emailPred.evaluate(with: email)
 }

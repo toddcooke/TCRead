@@ -8,13 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection: Tab = .bookSearch
-
-    enum Tab {
-        case bookSearch
-        case ereaderConfig
-    }
-
     var body: some View {
         BookSearchView()
     }
