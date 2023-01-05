@@ -12,16 +12,6 @@ struct BookDetailView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var bookData: Data? = nil
     @State private var sendMail: Bool = false
-    @State var kindleEmailInput: String = ""
-
-    func onSubmitEmail() {
-        guard isValidEmail(kindleEmailInput) else {
-            modelData.showErrorMessage.toggle()
-            return
-        }
-        modelData.setKindleEmail(kindleEmailInput)
-        sendMail.toggle()
-    }
 
     var body: some View {
         VStack {
@@ -40,25 +30,8 @@ struct BookDetailView: View {
                 }
                 .padding()
                 .sheet(isPresented: $sendMail) {
-                    if modelData.kindleEmail == nil {
-                        Text("What is your kindle email?").bold()
-                        Text("Not sure? Start here: https://www.amazon.com/sendtokindle/email")
-                        TextField(
-                            "Kindle email",
-                            text: $kindleEmailInput
-                        ).padding()
-                        .onSubmit(onSubmitEmail)
-                        .alert(isPresented: $modelData.showErrorMessage) {
-                            Alert(title: Text("Invalid email"), message: Text("Please use an email like this: alice@kindle.com"))
-                        }
-                        HStack{
-                            Button("Submit", action: onSubmitEmail)
-                            Button("Dismiss", action: { sendMail.toggle() })
-                        }
-                    } else {
-                        // Doesn't work on ios simulator
-                        MailBookView(to: modelData.kindleEmail!, bookTitle: book.title, attachment: bookData)
-                    }
+                    // Doesn't work on ios simulator
+                    MailBookView(to: modelData.kindleEmail!, bookTitle: book.title, attachment: bookData)
                 }
             } else {
                 Button("Download book") {
