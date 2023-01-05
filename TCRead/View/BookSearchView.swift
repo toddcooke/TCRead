@@ -5,9 +5,11 @@ struct BookSearchView: View {
     @State private var searchText = ""
     @State private var selection: Book? = nil
     @State private var bookIds: Set<String> = []
+    let title = "Book Search"
 
     init(preview: Bool) {
         searchText = "alice"
+        selection = Book.exampleBook()
     }
 
     init() {
@@ -17,14 +19,13 @@ struct BookSearchView: View {
         #if targetEnvironment(macCatalyst)
         NavigationSplitView {
             List(searchResults, selection: $bookIds) { book in
-                NavigationLink(book.title, value: book.title)
+                NavigationLink(book.title, value: book.textNum)
             }
+            .navigationSplitViewStyle(.balanced)
+            .navigationTitle(title)
         } detail: {
-            // TODO: show book detail view
-            if !bookIds.isEmpty{
-                // TODO: selection seems buggy:
-                // print selected book ids and books returned from db
-                BookDetailView(book: bookRepo.getBooksById( Array(bookIds)).first!)
+            if !bookIds.isEmpty {
+                BookDetailView(book: bookRepo.getBooksById(Array(bookIds)).last!)
             }
         }
         .searchable(text: $searchText)
@@ -42,7 +43,7 @@ struct BookSearchView: View {
                     }
                 }
             }
-            .navigationTitle("Book search")
+            .navigationTitle(title)
         }
         .searchable(text: $searchText)
         #endif
