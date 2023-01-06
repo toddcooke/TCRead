@@ -21,8 +21,8 @@ struct BookDetailView: View {
                 ProgressView()
             }
             .padding()
-            Text(book.title).bold()
-            Text(book.authors)
+            Text(book.title).bold().font(.title)
+            Text(book.authors.formatAuthor()).font(.title2)
 
             if let bookData {
                 Button("Send to \(S.ereader)") {
