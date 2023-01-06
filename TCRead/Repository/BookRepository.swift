@@ -30,6 +30,38 @@ class BookRepository {
         }
     }
 
+    func getAuthorsByName(_ a: String) -> [String] {
+        var result: [String] = []
+        guard let database = db else {
+            return []
+        }
+        do {
+            let filter = booksTable.filter(authors.like("\(a)%")).limit(50)
+            for row in try database.prepare(filter) {
+                result.append(row[authors])
+            }
+        } catch {
+            print(error)
+        }
+        return result
+    }
+
+    func getBooksByAuthor(_ a: String) -> [Book] {
+        var books: [Book] = []
+        guard let database = db else {
+            return []
+        }
+        do {
+            let filter = booksTable.filter(authors.like("\(a)%")).limit(50)
+            for row in try database.prepare(filter) {
+                books.append(toBook(row: row))
+            }
+        } catch {
+            print(error)
+        }
+        return books
+    }
+    
     func getBooksByTitle(_ t: String) -> [Book] {
         var books: [Book] = []
         guard let database = db else {
@@ -48,15 +80,15 @@ class BookRepository {
 
     func toBook(row: Row) -> Book {
         Book(
-                textNum: row[textNum],
-                type: row[type],
-                issued: row[issued],
-                title: row[title],
-                language: row[language],
-                authors: row[authors],
-                subjects: row[subjects],
-                locc: row[locc],
-                bookshelves: row[bookshelves]
+            textNum: row[textNum],
+            type: row[type],
+            issued: row[issued],
+            title: row[title],
+            language: row[language],
+            authors: row[authors],
+            subjects: row[subjects],
+            locc: row[locc],
+            bookshelves: row[bookshelves]
         )
     }
 
