@@ -27,7 +27,7 @@ struct BookDetailView: View {
             if let bookData {
                 Button("Send to \(S.ereader)") {
                     sendMail.toggle()
-                }
+                }.buttonStyle(.bordered)
                 .padding()
                 .sheet(isPresented: $sendMail) {
                     // Doesn't work on ios simulator
@@ -36,10 +36,10 @@ struct BookDetailView: View {
             } else {
                 Button("Download book") {
                     downloadEbook(url: URL(string: "https://www.gutenberg.org/ebooks/\(book.textNum).epub3.images")!)
-                }
+                }.buttonStyle(.bordered)
                 .padding()
             }
-        }
+        }.padding()
     }
 
     func downloadEbook(url: URL) {
