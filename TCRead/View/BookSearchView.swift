@@ -2,21 +2,19 @@ import SwiftUI
 
 struct BookSearchView: View {
     var bookRepo = BookRepository.shared
-    let title = "Book Search"
     @State private var searchText = ""
-    @State private var selection: Book? = nil
-    @State private var bookIds: String?
+    @State private var bookId: String?
 
     var body: some View {
         NavigationSplitView {
-            List(searchResults, selection: $bookIds) { book in
+            List(searchResults, selection: $bookId) { book in
                 NavigationLink(book.title, value: book.textNum)
             }
             .navigationSplitViewStyle(.balanced)
-            .navigationTitle(title)
+            .navigationTitle("Book Search")
         } detail: {
-            if let bookIds {
-                BookDetailView(book: bookRepo.getBooksById([bookIds]).last!)
+            if let bookId {
+                BookDetailView(book: bookRepo.getBooksById([bookId]).last!)
             }
         }
         .searchable(text: $searchText)
