@@ -20,7 +20,7 @@ struct MailBookView : UIViewControllerRepresentable{
             view.mailComposeDelegate = context.coordinator
             view.setToRecipients([to])
             view.setSubject(bookTitle)
-            view.addAttachmentData(attachment, mimeType: "epub+zip", fileName: bookTitle)
+            view.addAttachmentData(attachment, mimeType: "epub+zip", fileName: "\(bookTitle).epub")
             return view
         } else {
             return MFMailComposeViewController()
