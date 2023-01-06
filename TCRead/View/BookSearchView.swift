@@ -4,11 +4,23 @@ struct BookSearchView: View {
     var bookRepo = BookRepository.shared
     @State private var searchText = ""
     @State private var bookId: String?
+    @State private var searchingByTitle = true
 
     var body: some View {
         NavigationSplitView {
+            Toggle(isOn: $searchingByTitle) {
+                Text(searchingByTitle ? "Searching by title" : "Searching by author")
+            }
+            .toggleStyle(.automatic)
+            .tint(.gray)
+            .padding([.leading, .trailing])
             List(searchResults, selection: $bookId) { book in
-                NavigationLink(book.title, value: book.textNum)
+                NavigationLink(value: book.textNum) {
+                    VStack(alignment: .leading) {
+                        Text(book.title).bold()
+                        Text(book.authors.formatAuthor())
+                    }
+                }
             }
             .navigationSplitViewStyle(.balanced)
             .navigationTitle("Book Search")
@@ -23,8 +35,10 @@ struct BookSearchView: View {
     var searchResults: [Book] {
         if searchText.isEmpty {
             return []
-        } else {
+        } else if searchingByTitle {
             return bookRepo.getBooksByTitle(searchText)
+        } else {
+            return bookRepo.getBooksByAuthor(searchText)
         }
     }
 }
