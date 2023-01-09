@@ -15,19 +15,23 @@ struct BookDetailView: View {
 
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: "https://www.gutenberg.org/cache/epub/\(book.textNum)/pg\(book.textNum).cover.medium.jpg")) { image in
-                image.aspectRatio(contentMode: .fill)
+            AsyncImage(
+                url: URL(string: "https://www.gutenberg.org/cache/epub/\(book.textNum)/pg\(book.textNum).cover.medium.jpg")
+            ) { image in
+                image.aspectRatio(contentMode: .fit)
             } placeholder: {
                 ProgressView()
             }
+            .shadow(color: .black, radius: 5, x: 10, y: 10)
             .padding()
-            Text(book.title).bold().font(.title)
+            Text(book.title).bold().font(.title).padding([.leading, .trailing])
             Text(book.authors.formatAuthor()).font(.title2)
 
             if let bookData {
                 Button("Send to \(S.ereader)") {
                     sendMail.toggle()
-                }.buttonStyle(.bordered)
+                }
+                .buttonStyle(.bordered)
                 .padding()
                 .sheet(isPresented: $sendMail) {
                     // Doesn't work on ios simulator
@@ -36,10 +40,12 @@ struct BookDetailView: View {
             } else {
                 Button("Download book") {
                     downloadEbook(url: URL(string: "https://www.gutenberg.org/ebooks/\(book.textNum).epub3.images")!)
-                }.buttonStyle(.bordered)
+                }
+                .buttonStyle(.bordered)
                 .padding()
             }
-        }.padding()
+        }
+        .padding()
     }
 
     func downloadEbook(url: URL) {
