@@ -15,18 +15,25 @@ struct BookDetailView: View {
 
     var body: some View {
         VStack {
-            AsyncImage(
-                url: URL(string: "https://www.gutenberg.org/cache/epub/\(book.textNum)/pg\(book.textNum).cover.medium.jpg")
-            ) { image in
-                image.aspectRatio(contentMode: .fit)
-            } placeholder: {
-                ProgressView()
+            AsyncImage(url: URL(string: "https://www.gutenberg.org/cache/epub/\(book.textNum)/pg\(book.textNum).cover.medium.jpg")) { phase in
+                if let image = phase.image {
+                    image
+                } else if phase.error != nil {
+                    Image(systemName: "photo").font(.largeTitle)
+                } else {
+                    ProgressView()
+                }
             }
+            .frame(minWidth: 300,maxHeight: 300)
             .shadow(color: .black, radius: 5, x: 10, y: 10)
             .padding()
-            Text(book.title).bold().font(.title).padding([.leading, .trailing])
+            Text(book.title)
+                .bold()
+                .font(.title)
+                .padding([.leading, .trailing])
+                .lineLimit(1)
             Text(book.authors.formatAuthor()).font(.title2)
-
+            
             if let bookData {
                 Button("Send to kindle") {
                     sendMail.toggle()
