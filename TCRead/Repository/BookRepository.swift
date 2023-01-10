@@ -19,25 +19,23 @@ class BookRepository {
     private let locc = Expression<String>("LoCC")
     private let bookshelves = Expression<String>("Bookshelves")
 
-    private var db: Connection? = nil
+    private var db: Connection
 
-    private init() {
+    private init?() {
         do {
             let filePath = Bundle.main.path(forResource: "book", ofType: "sqlite3")
             db = try Connection(filePath!)
         } catch {
             print(error)
+            return nil
         }
     }
 
     func getAuthorsByName(_ a: String) -> [String] {
         var result: [String] = []
-        guard let database = db else {
-            return []
-        }
         do {
             let filter = booksTable.filter(authors.like("\(a)%")).limit(50)
-            for row in try database.prepare(filter) {
+            for row in try db.prepare(filter) {
                 result.append(row[authors])
             }
         } catch {
@@ -48,12 +46,9 @@ class BookRepository {
 
     func getBooksByAuthor(_ a: String) -> [Book] {
         var books: [Book] = []
-        guard let database = db else {
-            return []
-        }
         do {
             let filter = booksTable.filter(authors.like("\(a)%")).limit(50).filter(title != "No title")
-            for row in try database.prepare(filter) {
+            for row in try db.prepare(filter) {
                 books.append(toBook(row: row))
             }
         } catch {
@@ -64,12 +59,9 @@ class BookRepository {
     
     func getBooksByTitle(_ t: String) -> [Book] {
         var books: [Book] = []
-        guard let database = db else {
-            return []
-        }
         do {
             let filter = booksTable.filter(title.like("\(t)%")).limit(50).filter(title != "No title")
-            for row in try database.prepare(filter) {
+            for row in try db.prepare(filter) {
                 books.append(toBook(row: row))
             }
         } catch {
@@ -92,20 +84,16 @@ class BookRepository {
         )
     }
 
-    func getBooksById(_ tNums: Array<String> = []) -> [Book] {
-        guard let database = db else {
-            return []
-        }
-        let filter = booksTable.filter(tNums.contains(textNum))
-        var books = [Book]()
+    func getBookById(_ id: String) -> Book? {
+        let filter = booksTable.filter(id == textNum)
         do {
-            for row in try database.prepare(filter) {
-                books.append(toBook(row: row))
+            for row in try db.prepare(filter) {
+                return toBook(row: row)
             }
         } catch {
             print(error)
-            return []
+            return nil
         }
-        return books
+        return nil
     }
 }
