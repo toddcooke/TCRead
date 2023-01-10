@@ -34,8 +34,11 @@ class BookRepository {
     func getAuthorsByName(_ a: String) -> [String] {
         var result: [String] = []
         do {
-            let filter = booksTable.filter(authors.like("\(a)%")).limit(50)
-            for row in try db.prepare(filter) {
+            var query = booksTable.limit(50)
+            for component in a.components(separatedBy: " ") {
+                query = query.filter(authors.like("%\(component)%"))
+            }
+            for row in try db.prepare(query) {
                 result.append(row[authors])
             }
         } catch {
@@ -47,8 +50,11 @@ class BookRepository {
     func getBooksByAuthor(_ a: String) -> [Book] {
         var books: [Book] = []
         do {
-            let filter = booksTable.filter(authors.like("\(a)%")).limit(50).filter(title != "No title")
-            for row in try db.prepare(filter) {
+            var query = booksTable.limit(50)
+            for component in a.components(separatedBy: " ") {
+                query = query.filter(authors.like("%\(component)%"))
+            }
+            for row in try db.prepare(query) {
                 books.append(toBook(row: row))
             }
         } catch {
@@ -56,12 +62,14 @@ class BookRepository {
         }
         return books
     }
-    
+
     func getBooksByTitle(_ t: String) -> [Book] {
         var books: [Book] = []
         do {
-            let filter = booksTable.filter(title.like("\(t)%")).limit(50).filter(title != "No title")
-            for row in try db.prepare(filter) {
+            let query = booksTable
+            .filter(title.like("%\(t)%"))
+            .limit(50)
+            for row in try db.prepare(query) {
                 books.append(toBook(row: row))
             }
         } catch {
