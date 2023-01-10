@@ -52,7 +52,7 @@ class BookRepository {
             return []
         }
         do {
-            let filter = booksTable.filter(authors.like("\(a)%")).limit(50)
+            let filter = booksTable.filter(authors.like("\(a)%")).limit(50).filter(title != "No title")
             for row in try database.prepare(filter) {
                 books.append(toBook(row: row))
             }
@@ -68,7 +68,7 @@ class BookRepository {
             return []
         }
         do {
-            let filter = booksTable.filter(title.like("\(t)%")).limit(50)
+            let filter = booksTable.filter(title.like("\(t)%")).limit(50).filter(title != "No title")
             for row in try database.prepare(filter) {
                 books.append(toBook(row: row))
             }
