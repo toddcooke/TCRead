@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BookSearchView: View {
-    var bookRepo = BookRepository.shared
+    var bookRepo = BookRepository.shared!
     @State private var searchText = ""
     @State private var bookId: String?
     @State private var searchingByTitle = true
@@ -26,7 +26,9 @@ struct BookSearchView: View {
             .navigationTitle("Book Search")
         } detail: {
             if let bookId {
-                BookDetailView(book: bookRepo.getBooksById([bookId]).last!)
+                if let book = bookRepo.getBookById(bookId){
+                    BookDetailView(book: book)
+                }
             }
         }
         .searchable(text: $searchText)

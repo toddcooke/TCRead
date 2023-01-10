@@ -9,18 +9,12 @@ import SwiftUI
 
 @main
 struct TCReadApp: App {
-    static var bookDateFormatter = DateFormatter()
     @StateObject private var modelData = ModelData()
-    
-    init() {
-        TCReadApp.bookDateFormatter.dateFormat = "YYYY/MM/dd"
-    }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                    .environmentObject(modelData)
-
+            .environmentObject(modelData)
         }
     }
 }
