@@ -31,29 +31,10 @@ class BookRepository {
         }
     }
 
-    func getAuthorsByName(_ a: String) -> [String] {
-        var result: [String] = []
-        do {
-            var query = booksTable.limit(50)
-            for component in a.components(separatedBy: " ") {
-                query = query.filter(authors.like("%\(component)%"))
-            }
-            for row in try db.prepare(query) {
-                result.append(row[authors])
-            }
-        } catch {
-            print(error)
-        }
-        return result
-    }
-
     func getBooksByAuthor(_ a: String) -> [Book] {
         var books: [Book] = []
         do {
-            var query = booksTable.limit(50)
-            for component in a.components(separatedBy: " ") {
-                query = query.filter(authors.like("%\(component)%"))
-            }
+            let query = booksTable.limit(50).filter(authors.match("\(a)*"))
             for row in try db.prepare(query) {
                 books.append(toBook(row: row))
             }
@@ -66,9 +47,7 @@ class BookRepository {
     func getBooksByTitle(_ t: String) -> [Book] {
         var books: [Book] = []
         do {
-            let query = booksTable
-            .filter(title.like("%\(t)%"))
-            .limit(50)
+            let query = booksTable.limit(50).filter(title.match("\(t)*"))
             for row in try db.prepare(query) {
                 books.append(toBook(row: row))
             }
