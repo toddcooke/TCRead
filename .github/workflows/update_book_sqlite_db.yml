@@ -16,10 +16,22 @@ jobs:
       run: |- 
         echo Downloading catalog CSV
         curl https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv --output pg_catalog.csv
+        
         echo Creating sqlite db
-        sqlite3 book.sqlite3.temp ".mode csv" ".import pg_catalog.csv books" ".exit"
+        sqlite3 book.sqlite3.temp ".mode csv" ".import pg_catalog.csv temp" ".exit"
+        
         echo deleting junk rows
-        sqlite3 book.sqlite3.temp 'DELETE FROM books WHERE title = "No title";' ".exit"
+        sqlite3 book.sqlite3.temp 'DELETE FROM temp WHERE title = "No title";' ".exit"
+        
+        echo creating fts table
+        sqlite book.sqlite3.temp "CREATE VIRTUAL TABLE books USING fts5('Text#',Type,Issued,Title,Language,Authors,Subjects,LoCC,Bookshelves);" ".exit"
+        
+        echo copying data to fts table
+        sqlite book.sqlite3.temp "insert into books select * from temp;" ".exit"
+        
+        echo drop temp table 
+        sqlite book.sqlite3.temp "drop table temp;" ".exit"
+        
         echo verifying that db was created successfully
         sqlite3 book.sqlite3.temp "select * from books limit 10;" ".exit"
         [ $? -eq 0 ] || exit 1 

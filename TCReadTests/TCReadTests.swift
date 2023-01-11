@@ -26,6 +26,15 @@ final class TCReadTests: XCTestCase {
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
 
+    // Carrol, Lewis -> Lewis Carrol
+    // Van der Veldt, James Herman, 1893- -> James Herman Van der Veldt
+    // Ollier, Edmund, 1827-1886; Wilson, Robert, 1846-1893 -> Edmund Ollier, Robert Wilson
+    func testFormatAuthor() throws {
+//        let expected = "Lewis Carrol, Alice Gerstenberg"
+//        let output = "Carroll, Lewis, 1832-1898; Gerstenberg, Alice, 1885-1972".formatAuthor()
+//        XCTAssertEqual(output, expected)
+    }
+
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

@@ -18,7 +18,7 @@ struct BookSearchView: View {
                 NavigationLink(value: book.textNum) {
                     VStack(alignment: .leading) {
                         Text(book.title).bold()
-                        Text(book.authors.formatAuthor())
+                        Text(book.authors.formatAuthor()).font(.caption)
                     }
                 }
             }
