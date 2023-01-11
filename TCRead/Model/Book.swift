@@ -31,14 +31,16 @@ struct Book: Encodable, Hashable, Identifiable {
 extension String{
     // Carrol, Lewis -> Lewis Carrol
     func formatAuthor() -> String {
-        let components = self.components(separatedBy: ",")
-        if components.count >= 2 {
-            return "\(components[1]) \(components[0])"
-        }
+        // Do nothing for now since it's confusing if not all authors are listed
+//        let components = self.components(separatedBy: ",")
+//        if components.count >= 2 {
+//            return "\(components[1]) \(components[0])"
+//        }
         return self
     }
 }
 
+// Todo: either get this working or remove it
 //extension String {
 //    // Carrol, Lewis -> Lewis Carrol
 //    // Van der Veldt, James Herman, 1893- -> James Herman Van der Veldt
