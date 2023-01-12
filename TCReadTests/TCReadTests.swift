@@ -30,9 +30,21 @@ final class TCReadTests: XCTestCase {
     // Van der Veldt, James Herman, 1893- -> James Herman Van der Veldt
     // Ollier, Edmund, 1827-1886; Wilson, Robert, 1846-1893 -> Edmund Ollier, Robert Wilson
     func testFormatAuthor() throws {
-//        let expected = "Lewis Carrol, Alice Gerstenberg"
-//        let output = "Carroll, Lewis, 1832-1898; Gerstenberg, Alice, 1885-1972".formatAuthor()
-//        XCTAssertEqual(output, expected)
+        var expected = "Lewis Carroll, Alice Gerstenberg"
+        var output = "Carroll, Lewis, 1832-1898; Gerstenberg, Alice, 1885-1972".formatAuthorComplex()
+        XCTAssertEqual(output, expected)
+
+        expected = "James Herman Van der Veldt"
+        output = "Van der Veldt, James Herman, 1893-".formatAuthorComplex()
+        XCTAssertEqual(output, expected)
+
+        expected = "Edmund Ollier, Robert Wilson"
+        output = "Ollier, Edmund, 1827-1886; Wilson, Robert, 1846-1893".formatAuthorComplex()
+        XCTAssertEqual(output, expected)
+
+        expected = "Edmund Ollier, Robert Wilson"
+        output = "Ollier, Edmund, 1827-1886; Wilson, Robert, 1846-1893".formatAuthorComplex()
+        XCTAssertEqual(output, expected)
     }
 
     func testPerformanceExample() throws {
