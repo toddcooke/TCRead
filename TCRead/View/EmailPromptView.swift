@@ -13,12 +13,18 @@ struct EmailPromptView: View {
     @EnvironmentObject var modelData: ModelData
 
     var body: some View {
-        Text("What is your kindle email?").bold()
-        Text("Not sure? Start here: https://www.amazon.com/sendtokindle/email")
+        Text("What's your kindle email?").bold()
+        HStack{
+            Text("Not sure?")
+            Link(destination: URL(string: "https://www.amazon.com/sendtokindle/email")!){
+                Text("Start here")
+            }
+        }
         TextField(
             "Kindle email",
             text: $kindleEmailInput
         )
+        .textFieldStyle(.roundedBorder)
         .padding()
         .autocapitalization(.none)
         .onSubmit(onSubmitEmail)
@@ -37,4 +43,13 @@ struct EmailPromptView: View {
         }
         modelData.setKindleEmail(kindleEmailInput)
     }
+    
+    struct EmailPromptView_Previews: PreviewProvider {
+        static var previews: some View {
+            EmailPromptView()
+                .environmentObject(ModelData())
+
+        }
+    }
+
 }
