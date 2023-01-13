@@ -46,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		93DFB26822DBFAA6CAC546C2 /* .env */ = {isa = PBXFileReference; lastKnownFileType = file.env; path = .env; sourceTree = "<group>"; };
+		93DFB550D990652F0E21AF22 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B457F0B3296C858F0085690A /* TCRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B457F0B6296C858F0085690A /* TCReadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadApp.swift; sourceTree = "<group>"; };
 		B457F0B8296C858F0085690A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 				B457F0D0296C858F0085690A /* TCReadUITests */,
 				B457F0B4296C858F0085690A /* Products */,
 				93DFB26822DBFAA6CAC546C2 /* .env */,
+				93DFB550D990652F0E21AF22 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
