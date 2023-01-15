@@ -16,7 +16,7 @@ struct EmailPromptView: View {
         Text("What's your kindle email?").bold()
         HStack{
             Text("Not sure?")
-            Link(destination: URL(string: "https://www.amazon.com/sendtokindle/email")!){
+            Link(destination: URL(string: "https://www.amazon.com/sendtokindle/email#s2k-email-step-by-step")!){
                 Text("Start here")
             }
         }
@@ -24,6 +24,8 @@ struct EmailPromptView: View {
             "Kindle email",
             text: $kindleEmailInput
         )
+        .keyboardType(.emailAddress)
+        .disableAutocorrection(true)
         .textFieldStyle(.roundedBorder)
         .padding()
         .autocapitalization(.none)
