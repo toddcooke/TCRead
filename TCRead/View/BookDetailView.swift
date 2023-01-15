@@ -24,16 +24,16 @@ struct BookDetailView: View {
                     ProgressView()
                 }
             }
-            .frame(minWidth: 300,maxHeight: 300)
+            .frame(minWidth: 300, maxHeight: 300)
             .shadow(color: .black, radius: 5, x: 10, y: 10)
             .padding()
             Text(book.title)
-                .bold()
-                .font(.title)
-                .padding([.leading, .trailing])
-                .lineLimit(1)
+            .bold()
+            .font(.title)
+            .padding([.leading, .trailing])
+            .lineLimit(1)
             Text(book.authors.formatAuthor()).font(.title2)
-            
+
             if let bookData {
                 Button("Send to kindle") {
                     sendMail.toggle()
@@ -43,13 +43,26 @@ struct BookDetailView: View {
                 .sheet(isPresented: $sendMail) {
                     // Doesn't work on ios simulator
                     MailBookView(to: modelData.kindleEmail!, bookTitle: book.title, attachment: bookData)
+                        .environmentObject(modelData)
                 }
             } else {
-                Button("Download book") {
+                Button("Send to kindle") {
                     downloadEbook(url: URL(string: "https://www.gutenberg.org/ebooks/\(book.textNum).epub3.images")!)
                 }
                 .buttonStyle(.bordered)
                 .padding()
+            }
+        }
+        .sheet(isPresented: $modelData.showEmailModal){
+            Text(verbatim: "Book sent. Please check your inbox for an email from do-not-reply@amazon.com and click 'Verify Request'")
+            
+            Button("Don't show this again"){
+                modelData.showEmailModal = false
+                modelData.dontShowEmailTooltip()
+            }
+            
+            Button("Done"){
+                modelData.showEmailModal = false
             }
         }
         .padding()
