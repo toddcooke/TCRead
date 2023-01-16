@@ -27,6 +27,7 @@ struct BookDetailView: View {
             .frame(minWidth: 300, maxHeight: 300)
             .shadow(color: .black, radius: 5, x: 10, y: 10)
             .padding()
+
             Text(book.title)
             .bold()
             .font(.title)
@@ -54,16 +55,7 @@ struct BookDetailView: View {
             }
         }
         .sheet(isPresented: $modelData.showEmailModal){
-            Text(verbatim: "Book sent. Please check your inbox for an email from do-not-reply@amazon.com and click 'Verify Request'")
-            
-            Button("Don't show this again"){
-                modelData.showEmailModal = false
-                modelData.dontShowEmailTooltip()
-            }
-            
-            Button("Done"){
-                modelData.showEmailModal = false
-            }
+            EmailReminderView()
         }
         .padding()
     }
