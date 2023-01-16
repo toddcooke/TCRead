@@ -14,6 +14,7 @@
 		B457F0C8296C858F0085690A /* TCReadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0C7296C858F0085690A /* TCReadTests.swift */; };
 		B457F0D2296C858F0085690A /* TCReadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D1296C858F0085690A /* TCReadUITests.swift */; };
 		B457F0D4296C858F0085690A /* TCReadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */; };
+		B46E4EAB2974B07C00DACCC3 /* EmailReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46E4EAA2974B07C00DACCC3 /* EmailReminderView.swift */; };
 		B4A080E32971C4EA00C95283 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080E22971C4EA00C95283 /* FastlaneScreenshots.swift */; };
 		B4A080E52971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080E42971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift */; };
 		B4A080EC2971C50B00C95283 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080EB2971C50B00C95283 /* SnapshotHelper.swift */; };
@@ -67,6 +68,7 @@
 		B457F0CD296C858F0085690A /* TCReadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCReadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B457F0D1296C858F0085690A /* TCReadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITests.swift; sourceTree = "<group>"; };
 		B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B46E4EAA2974B07C00DACCC3 /* EmailReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailReminderView.swift; sourceTree = "<group>"; };
 		B4A080E02971C4EA00C95283 /* FastlaneScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A080E22971C4EA00C95283 /* FastlaneScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshots.swift; sourceTree = "<group>"; };
 		B4A080E42971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshotsLaunchTests.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				B4C8C9AA296C88BC00653437 /* BookDetailView.swift */,
 				B4C8C9AB296C88BC00653437 /* EmailPromptView.swift */,
 				B4C8C9AC296C88BC00653437 /* EmailSendView.swift */,
+				B46E4EAA2974B07C00DACCC3 /* EmailReminderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				B4C8C9A0296C885300653437 /* ModelData.swift in Sources */,
 				B4C8C99F296C885300653437 /* BookRepository.swift in Sources */,
 				B4C8C99A296C876A00653437 /* Book.swift in Sources */,
+				B46E4EAB2974B07C00DACCC3 /* EmailReminderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
