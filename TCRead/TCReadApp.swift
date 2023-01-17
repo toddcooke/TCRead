@@ -14,7 +14,7 @@ struct TCReadApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            .environmentObject(modelData)
+                .environmentObject(modelData)
         }
     }
 }

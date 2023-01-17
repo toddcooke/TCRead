@@ -11,9 +11,9 @@ struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
 
     var body: some View {
-        if modelData.kindleEmail == nil{
+        if modelData.kindleEmail == nil {
             EmailPromptView()
-        }else{
+        } else {
             BookSearchView()
         }
     }
