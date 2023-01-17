@@ -14,6 +14,7 @@
 		B457F0C8296C858F0085690A /* TCReadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0C7296C858F0085690A /* TCReadTests.swift */; };
 		B457F0D2296C858F0085690A /* TCReadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D1296C858F0085690A /* TCReadUITests.swift */; };
 		B457F0D4296C858F0085690A /* TCReadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */; };
+		B49B0E1E29774C7A00A74AE1 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0E1D29774C7A00A74AE1 /* AboutView.swift */; };
 		B4A080E32971C4EA00C95283 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080E22971C4EA00C95283 /* FastlaneScreenshots.swift */; };
 		B4A080E52971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080E42971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift */; };
 		B4A080EC2971C50B00C95283 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080EB2971C50B00C95283 /* SnapshotHelper.swift */; };
@@ -66,6 +67,7 @@
 		B457F0CD296C858F0085690A /* TCReadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCReadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B457F0D1296C858F0085690A /* TCReadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITests.swift; sourceTree = "<group>"; };
 		B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B49B0E1D29774C7A00A74AE1 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		B4A080E02971C4EA00C95283 /* FastlaneScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A080E22971C4EA00C95283 /* FastlaneScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshots.swift; sourceTree = "<group>"; };
 		B4A080E42971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshotsLaunchTests.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				B4C8C9AA296C88BC00653437 /* BookDetailView.swift */,
 				B4C8C9AB296C88BC00653437 /* EmailPromptView.swift */,
 				B4C8C9AC296C88BC00653437 /* EmailSendView.swift */,
+				B49B0E1D29774C7A00A74AE1 /* AboutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,7 +336,7 @@
 			);
 			mainGroup = B457F0AA296C858E0085690A;
 			packageReferences = (
-				B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite" */,
 				B4C8C9A5296C889500653437 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B457F0B4296C858F0085690A /* Products */;
@@ -391,6 +394,7 @@
 				B4C8C9AD296C88BC00653437 /* BookSearchView.swift in Sources */,
 				B4C8C9B0296C88BC00653437 /* EmailSendView.swift in Sources */,
 				B4C8C9AF296C88BC00653437 /* EmailPromptView.swift in Sources */,
+				B49B0E1E29774C7A00A74AE1 /* AboutView.swift in Sources */,
 				B457F0B9296C858F0085690A /* ContentView.swift in Sources */,
 				B457F0B7296C858F0085690A /* TCReadApp.swift in Sources */,
 				B4C8C9A0296C885300653437 /* ModelData.swift in Sources */,
@@ -794,7 +798,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+		B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
 			requirement = {
@@ -815,7 +819,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		B4C8C9A3296C888500653437 /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			package = B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite" */;
 			productName = SQLite;
 		};
 		B4C8C9A6296C889500653437 /* Alamofire */ = {

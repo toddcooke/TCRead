@@ -5,6 +5,7 @@ struct BookSearchView: View {
     @State private var searchText = ""
     @State private var bookId: String?
     @State private var searchingByTitle = true
+    @State var showAboutView = false
 
     var body: some View {
         NavigationSplitView {
@@ -14,6 +15,7 @@ struct BookSearchView: View {
             .toggleStyle(.automatic)
             .tint(.gray)
             .padding([.leading, .trailing])
+
             List(searchResults, selection: $bookId) { book in
                 NavigationLink(value: book.textNum) {
                     VStack(alignment: .leading) {
@@ -24,6 +26,15 @@ struct BookSearchView: View {
             }
             .navigationSplitViewStyle(.balanced)
             .navigationTitle("Book Search")
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        showAboutView.toggle()
+                    } label: {
+                        Label("About", systemImage: "questionmark.circle.fill")
+                    }
+                }
+            }
         } detail: {
             if let bookId {
                 if let book = bookRepo.getBookById(bookId) {
@@ -32,6 +43,9 @@ struct BookSearchView: View {
             }
         }
         .searchable(text: $searchText)
+        .sheet(isPresented: $showAboutView) {
+            AboutView(isPresented: $showAboutView)
+        }
     }
 
     var searchResults: [Book] {
