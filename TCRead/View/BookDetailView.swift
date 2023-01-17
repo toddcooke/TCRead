@@ -4,8 +4,8 @@
 
 import Foundation
 
-import SwiftUI
 import Alamofire
+import SwiftUI
 
 struct BookDetailView: View {
     var book: Book
@@ -29,21 +29,21 @@ struct BookDetailView: View {
             .padding()
 
             Text(book.title)
-            .bold()
-            .font(.title)
-            .padding([.leading, .trailing])
-            .lineLimit(1)
+                .bold()
+                .font(.title)
+                .padding([.leading, .trailing])
+                .lineLimit(1)
             Text(book.authors.formatAuthor()).font(.title2)
 
             if let bookData {
-                Button("Send to kindle") {
+                Button(modelData.booksSent.contains(book) ? "Book Sent!" : "Send to kindle") {
                     sendMail.toggle()
                 }
                 .buttonStyle(.bordered)
                 .padding()
                 .sheet(isPresented: $sendMail) {
                     // Doesn't work on ios simulator
-                    MailBookView(to: modelData.kindleEmail!, bookTitle: book.title, attachment: bookData)
+                    MailBookView(to: modelData.kindleEmail!, book: book, attachment: bookData)
                         .environmentObject(modelData)
                 }
             } else {
@@ -54,32 +54,29 @@ struct BookDetailView: View {
                 .padding()
             }
         }
-        .sheet(isPresented: $modelData.showEmailModal){
-            EmailReminderView()
-        }
         .padding()
     }
 
     func downloadEbook(url: URL) {
         AF.download(url)
-        .downloadProgress { progress in
-            print("Download Progress: \(progress.fractionCompleted)")
-        }
-        .responseData { response in
-            if let data = response.value {
-                bookData = data
-                sendMail = true
-            } else {
-                print("Response error:" + response.description)
+            .downloadProgress { progress in
+                print("Download Progress: \(progress.fractionCompleted)")
             }
-        }
+            .responseData { response in
+                if let data = response.value {
+                    bookData = data
+                    sendMail = true
+                } else {
+                    print("Response error:" + response.description)
+                }
+            }
     }
 }
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
         BookDetailView(book: Book.exampleBook())
-        .environmentObject(ModelData())
+            .environmentObject(ModelData())
     }
 }
 

@@ -24,14 +24,14 @@ struct Book: Encodable, Hashable, Identifiable {
 
     static func exampleBook() -> Book {
         Book(textNum: "0", type: "book", issued: Date.now.description,
-            title: "Alice in wonderland", language: "en", authors: "Lewis Carrol", subjects: "Fiction", locc: "PR", bookshelves: "Childrens Literature")
+             title: "Alice in wonderland", language: "en", authors: "Lewis Carrol", subjects: "Fiction", locc: "PR", bookshelves: "Childrens Literature")
     }
 }
 
 extension String {
     // Melville, Herman, 1819-1891 -> Herman Melville
     func formatAuthor() -> String {
-        let components = self.components(separatedBy: ",")
+        let components = components(separatedBy: ",")
         if components.count == 3 {
             return "\(components[1]) \(components[0])"
         }
@@ -41,7 +41,7 @@ extension String {
 
 extension String {
     func formatAuthorComplex() -> String {
-        var components = self.components(separatedBy: ",").map {
+        var components = components(separatedBy: ",").map {
             $0.trimmingCharacters(in: .whitespaces)
         }
         .map { s in

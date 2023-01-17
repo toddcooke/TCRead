@@ -14,14 +14,12 @@
 		B457F0C8296C858F0085690A /* TCReadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0C7296C858F0085690A /* TCReadTests.swift */; };
 		B457F0D2296C858F0085690A /* TCReadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D1296C858F0085690A /* TCReadUITests.swift */; };
 		B457F0D4296C858F0085690A /* TCReadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */; };
-		B46E4EAB2974B07C00DACCC3 /* EmailReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46E4EAA2974B07C00DACCC3 /* EmailReminderView.swift */; };
 		B4A080E32971C4EA00C95283 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080E22971C4EA00C95283 /* FastlaneScreenshots.swift */; };
 		B4A080E52971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080E42971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift */; };
 		B4A080EC2971C50B00C95283 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080EB2971C50B00C95283 /* SnapshotHelper.swift */; };
 		B4C8C99A296C876A00653437 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8C999296C876A00653437 /* Book.swift */; };
 		B4C8C99F296C885300653437 /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8C99C296C885300653437 /* BookRepository.swift */; };
 		B4C8C9A0296C885300653437 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8C99D296C885300653437 /* ModelData.swift */; };
-		B4C8C9A1296C885300653437 /* UserDefaultsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8C99E296C885300653437 /* UserDefaultsRepo.swift */; };
 		B4C8C9A4296C888500653437 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B4C8C9A3296C888500653437 /* SQLite */; };
 		B4C8C9A7296C889500653437 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B4C8C9A6296C889500653437 /* Alamofire */; };
 		B4C8C9AD296C88BC00653437 /* BookSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8C9A9296C88BC00653437 /* BookSearchView.swift */; };
@@ -68,7 +66,6 @@
 		B457F0CD296C858F0085690A /* TCReadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCReadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B457F0D1296C858F0085690A /* TCReadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITests.swift; sourceTree = "<group>"; };
 		B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B46E4EAA2974B07C00DACCC3 /* EmailReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailReminderView.swift; sourceTree = "<group>"; };
 		B4A080E02971C4EA00C95283 /* FastlaneScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A080E22971C4EA00C95283 /* FastlaneScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshots.swift; sourceTree = "<group>"; };
 		B4A080E42971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshotsLaunchTests.swift; sourceTree = "<group>"; };
@@ -76,7 +73,6 @@
 		B4C8C999296C876A00653437 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B4C8C99C296C885300653437 /* BookRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
 		B4C8C99D296C885300653437 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		B4C8C99E296C885300653437 /* UserDefaultsRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepo.swift; sourceTree = "<group>"; };
 		B4C8C9A9296C88BC00653437 /* BookSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSearchView.swift; sourceTree = "<group>"; };
 		B4C8C9AA296C88BC00653437 /* BookDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		B4C8C9AB296C88BC00653437 /* EmailPromptView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailPromptView.swift; sourceTree = "<group>"; };
@@ -207,7 +203,6 @@
 			children = (
 				B4C8C99C296C885300653437 /* BookRepository.swift */,
 				B4C8C99D296C885300653437 /* ModelData.swift */,
-				B4C8C99E296C885300653437 /* UserDefaultsRepo.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -219,7 +214,6 @@
 				B4C8C9AA296C88BC00653437 /* BookDetailView.swift */,
 				B4C8C9AB296C88BC00653437 /* EmailPromptView.swift */,
 				B4C8C9AC296C88BC00653437 /* EmailSendView.swift */,
-				B46E4EAA2974B07C00DACCC3 /* EmailReminderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -339,7 +333,7 @@
 			);
 			mainGroup = B457F0AA296C858E0085690A;
 			packageReferences = (
-				B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite" */,
+				B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 				B4C8C9A5296C889500653437 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B457F0B4296C858F0085690A /* Products */;
@@ -395,7 +389,6 @@
 			files = (
 				B4C8C9AE296C88BC00653437 /* BookDetailView.swift in Sources */,
 				B4C8C9AD296C88BC00653437 /* BookSearchView.swift in Sources */,
-				B4C8C9A1296C885300653437 /* UserDefaultsRepo.swift in Sources */,
 				B4C8C9B0296C88BC00653437 /* EmailSendView.swift in Sources */,
 				B4C8C9AF296C88BC00653437 /* EmailPromptView.swift in Sources */,
 				B457F0B9296C858F0085690A /* ContentView.swift in Sources */,
@@ -403,7 +396,6 @@
 				B4C8C9A0296C885300653437 /* ModelData.swift in Sources */,
 				B4C8C99F296C885300653437 /* BookRepository.swift in Sources */,
 				B4C8C99A296C876A00653437 /* Book.swift in Sources */,
-				B46E4EAB2974B07C00DACCC3 /* EmailReminderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -802,7 +794,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite" */ = {
+		B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
 			requirement = {
@@ -823,7 +815,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		B4C8C9A3296C888500653437 /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite" */;
+			package = B4C8C9A2296C888500653437 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
 			productName = SQLite;
 		};
 		B4C8C9A6296C889500653437 /* Alamofire */ = {

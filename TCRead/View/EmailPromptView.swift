@@ -14,9 +14,12 @@ struct EmailPromptView: View {
 
     var body: some View {
         Text("What's your kindle email?").bold()
-        HStack{
+        HStack {
             Text("Not sure?")
-            Link(destination: URL(string: "https://www.amazon.com/sendtokindle/email#s2k-email-step-by-step")!){
+            Link(
+                destination: URL(
+                    string: "https://www.amazon.com/sendtokindle/email#s2k-email-step-by-step")!
+            ) {
                 Text("Start here")
             }
         }
@@ -31,7 +34,10 @@ struct EmailPromptView: View {
         .autocapitalization(.none)
         .onSubmit(onSubmitEmail)
         .alert(isPresented: $modelData.showErrorMessage) {
-            Alert(title: Text("Invalid email"), message: Text("Please use an email like this: alice@kindle.com"))
+            Alert(
+                title: Text("Invalid email"),
+                message: Text("Please use an email like this: alice@kindle.com")
+            )
         }
         HStack {
             Button("Submit", action: onSubmitEmail)
@@ -45,13 +51,11 @@ struct EmailPromptView: View {
         }
         modelData.setKindleEmail(kindleEmailInput)
     }
-    
+
     struct EmailPromptView_Previews: PreviewProvider {
         static var previews: some View {
             EmailPromptView()
                 .environmentObject(ModelData())
-
         }
     }
-
 }

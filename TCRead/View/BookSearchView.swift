@@ -26,7 +26,7 @@ struct BookSearchView: View {
             .navigationTitle("Book Search")
         } detail: {
             if let bookId {
-                if let book = bookRepo.getBookById(bookId){
+                if let book = bookRepo.getBookById(bookId) {
                     BookDetailView(book: book)
                 }
             }

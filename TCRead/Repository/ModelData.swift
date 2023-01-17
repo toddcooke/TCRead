@@ -7,29 +7,12 @@ import Foundation
 final class ModelData: ObservableObject {
     @Published private(set) var kindleEmail: String? = nil
     @Published var showErrorMessage = false
-    @Published private(set) var bookEmailSent = false
-    @Published var showEmailModal = false
+    @Published var booksSent: [Book] = []
 
     func setKindleEmail(_ email: String) {
         print("setting email to: " + email)
         UserDefaults.standard.set(email, forKey: "kindleEmail")
         kindleEmail = email
-    }
-
-    func setBookEmailSent() {
-        bookEmailSent = true
-        var show = true
-        if let showEmailModal = UserDefaults.standard.object(forKey: "showEmailModal") as? Bool? {
-            if showEmailModal != nil {
-                show = false
-            }
-        }
-        showEmailModal = show
-    }
-
-    func dontShowEmailTooltip() {
-        UserDefaults.standard.set(false, forKey: "showEmailModal")
-        showEmailModal = false
     }
 
     init() {
