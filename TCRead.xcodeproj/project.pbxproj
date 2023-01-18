@@ -15,6 +15,7 @@
 		B457F0D2296C858F0085690A /* TCReadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D1296C858F0085690A /* TCReadUITests.swift */; };
 		B457F0D4296C858F0085690A /* TCReadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */; };
 		B49B0E1E29774C7A00A74AE1 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0E1D29774C7A00A74AE1 /* AboutView.swift */; };
+		B49B0E252978548C00A74AE1 /* EnvVarUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0E242978548C00A74AE1 /* EnvVarUtil.swift */; };
 		B4A080E32971C4EA00C95283 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080E22971C4EA00C95283 /* FastlaneScreenshots.swift */; };
 		B4A080E52971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080E42971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift */; };
 		B4A080EC2971C50B00C95283 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080EB2971C50B00C95283 /* SnapshotHelper.swift */; };
@@ -68,6 +69,7 @@
 		B457F0D1296C858F0085690A /* TCReadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITests.swift; sourceTree = "<group>"; };
 		B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B49B0E1D29774C7A00A74AE1 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		B49B0E242978548C00A74AE1 /* EnvVarUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvVarUtil.swift; sourceTree = "<group>"; };
 		B4A080E02971C4EA00C95283 /* FastlaneScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A080E22971C4EA00C95283 /* FastlaneScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshots.swift; sourceTree = "<group>"; };
 		B4A080E42971C4EA00C95283 /* FastlaneScreenshotsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneScreenshotsLaunchTests.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		B457F0B5296C858F0085690A /* TCRead */ = {
 			isa = PBXGroup;
 			children = (
+				B49B0E232978547900A74AE1 /* Util */,
 				B4C8C9B3296C891300653437 /* TCRead.entitlements */,
 				B4C8C9A8296C88BC00653437 /* View */,
 				B4C8C99B296C885300653437 /* Repository */,
@@ -180,6 +183,14 @@
 				B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */,
 			);
 			path = TCReadUITests;
+			sourceTree = "<group>";
+		};
+		B49B0E232978547900A74AE1 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B49B0E242978548C00A74AE1 /* EnvVarUtil.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		B4A080E12971C4EA00C95283 /* FastlaneScreenshots */ = {
@@ -390,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B49B0E252978548C00A74AE1 /* EnvVarUtil.swift in Sources */,
 				B4C8C9AE296C88BC00653437 /* BookDetailView.swift in Sources */,
 				B4C8C9AD296C88BC00653437 /* BookSearchView.swift in Sources */,
 				B4C8C9B0296C88BC00653437 /* EmailSendView.swift in Sources */,

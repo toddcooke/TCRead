@@ -14,7 +14,9 @@ struct AboutView: View {
     var body: some View {
         VStack {
             Text("TCRead").font(.title).padding()
-            Text("TCRead lets you search for free ebooks and email them to your kindle. All book content presented by this app comes from gutenberg.org. Gutenberg has the cool mission of making copyright-free books easily and freely available. If you can, consider supporting them: https://www.gutenberg.org/donate")
+            Text("TCRead lets you search for free ebooks and email them to your kindle.")
+            Divider()
+            Text("All book content presented by this app comes from gutenberg.org. Gutenberg has the cool mission of making copyright-free books easily and freely available. If you can, consider supporting them: https://www.gutenberg.org/donate")
 
             Button("Done") {
                 isPresented.toggle()

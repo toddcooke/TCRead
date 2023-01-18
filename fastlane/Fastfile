@@ -13,6 +13,11 @@
 # Uncomment the line if you want fastlane to automatically update itself
 update_fastlane
 
+lane :screenshots do
+  capture_screenshots
+  upload_to_app_store
+end
+
 lane :beta do
   get_certificates           # invokes cert
   get_provisioning_profile   # invokes sigh
