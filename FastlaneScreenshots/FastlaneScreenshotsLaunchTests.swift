@@ -15,29 +15,50 @@ final class FastlaneScreenshotsLaunchTests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
+            
+    override func setUp() {
+        super.setUp()
+        
+        let app = XCUIApplication()
+        app.launchEnvironment["SKIP_EMAIL"] = "alice@kindle.com"
+        setupSnapshot(app)
+        app.launch()
+    }
 
     func testLaunch() throws {
+        snapshot("0Launch")
         let app = XCUIApplication()
+        // TODO: figure out why XCUIDevice is not in scope
+//        XCUIDevice.sharedDevice().orientation = .Portrait
+        
         let bookSearchNavigationBar = app.navigationBars["Book Search"]
         let searchSearchField = bookSearchNavigationBar.searchFields["Search"]
         searchSearchField.tap()
-        app.collectionViews /*@START_MENU_TOKEN@*/ .buttons[
-            "Alice's Adventures in Wonderland,  Lewis Carroll"
-        ] /*[[".cells.buttons[\"Alice's Adventures in Wonderland,  Lewis Carroll\"]",".buttons[\"Alice's Adventures in Wonderland,  Lewis Carroll\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        .tap()
-        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Book Search"].tap()
-        searchSearchField.tap()
-        setupSnapshot(app)
-        snapshot("01LoginScreen")
-        searchSearchField.buttons["Clear text"].tap()
-        bookSearchNavigationBar.buttons["Cancel"].tap()
+        searchSearchField.typeText("a")
+        searchSearchField.typeText("l")
+        searchSearchField.typeText("i")
+        searchSearchField.typeText("c")
+        searchSearchField.typeText("e")
+        searchSearchField.typeText("\n") //  dismiss keyboard
+        
+        let ladingElement = app.collectionViews.element(boundBy: 0).cells.matching(identifier: "ProgressView").element
 
-        // Insert steps here to perform after app launch but before taking a screenshot,
-        // such as logging into a test account or navigating somewhere in the app
-
-        let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.name = "Launch Screen"
-        attachment.lifetime = .keepAlways
-        add(attachment)
+        // wait until timeout reached
+        waitNotExistance(for: ladingElement)
+        
+        XCUIApplication().cells
+          .containing(.staticText, identifier: "Alice's Adventures in Wonderland")
+          .firstMatch
+          .tap()
+        snapshot("1BookDetail")
     }
+    
+    func waitNotExistance(for element: XCUIElement, timeout: Double = 5) {
+        let notExists = NSPredicate(format: "exists != 1")
+        let elementShown = expectation(for: notExists, evaluatedWith: element)
+        wait(for: [elementShown], timeout: timeout, enforceOrder: false)
+    }
+
 }
+
+
