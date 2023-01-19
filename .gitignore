@@ -1,5 +1,9 @@
 .idea
 .env
+*.cer
+*.certSigningRequest
+*.p12
+*.mobileprovision
 
 # Xcode
 #

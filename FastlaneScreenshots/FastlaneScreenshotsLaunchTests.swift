@@ -29,7 +29,7 @@ final class FastlaneScreenshotsLaunchTests: XCTestCase {
         snapshot("0Launch")
         let app = XCUIApplication()
         // TODO: figure out why XCUIDevice is not in scope
-//        XCUIDevice.sharedDevice().orientation = .Portrait
+        //XCUIDevice.sharedDevice.orientation = .Portrait
         
         let bookSearchNavigationBar = app.navigationBars["Book Search"]
         let searchSearchField = bookSearchNavigationBar.searchFields["Search"]
