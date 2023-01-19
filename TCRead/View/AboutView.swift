@@ -12,11 +12,21 @@ struct AboutView: View {
     @Binding var isPresented: Bool
 
     var body: some View {
-        VStack {
-            Text("TCRead").font(.title).padding()
-            Text("TCRead lets you search for free ebooks and email them to your kindle.")
+        VStack(alignment: .leading) {
+            Group {
+                Text("About TCRead").font(.title)
+                Text("TCRead lets you search for free ebooks and email them to your kindle.").padding()
+                Text("To use TCRead:")
+                Text("1. When you first start the app, enter your kindle email. You can find this here: https://www.amazon.com/sendtokindle/email#s2k-email-step-by-step")
+                Text("2. Search for a book")
+                Text("3. Click send to kindle")
+                Text("4. Click the top right button which sends the book from your email to your kindle.")
+                Text("5. Go to your email and click 'Verify Request'")
+                Text("6. Check your kindle for your book - make sure it has wifi enabled.")
+            }
+
             Divider()
-            Text("All book content presented by this app comes from gutenberg.org. Gutenberg has the cool mission of making copyright-free books easily and freely available. If you can, consider supporting them: https://www.gutenberg.org/donate")
+            Text("All book content presented by this app comes from gutenberg.org. Gutenberg makes copyright-free books easily and freely available. Check out Project Gutenberg at https://www.gutenberg.org")
 
             Button("Done") {
                 isPresented.toggle()
