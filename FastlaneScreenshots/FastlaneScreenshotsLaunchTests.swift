@@ -15,10 +15,10 @@ final class FastlaneScreenshotsLaunchTests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-            
+
     override func setUp() {
         super.setUp()
-        
+
         let app = XCUIApplication()
         app.launchEnvironment["SKIP_EMAIL"] = "alice@kindle.com"
         setupSnapshot(app)
@@ -26,11 +26,12 @@ final class FastlaneScreenshotsLaunchTests: XCTestCase {
     }
 
     func testLaunch() throws {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            XCUIDevice.shared.orientation = .portrait
+        }
         snapshot("0Launch")
         let app = XCUIApplication()
-        // TODO: figure out why XCUIDevice is not in scope
-        //XCUIDevice.sharedDevice.orientation = .Portrait
-        
+
         let bookSearchNavigationBar = app.navigationBars["Book Search"]
         let searchSearchField = bookSearchNavigationBar.searchFields["Search"]
         searchSearchField.tap()
@@ -40,25 +41,12 @@ final class FastlaneScreenshotsLaunchTests: XCTestCase {
         searchSearchField.typeText("c")
         searchSearchField.typeText("e")
         searchSearchField.typeText("\n") //  dismiss keyboard
-        
-        let ladingElement = app.collectionViews.element(boundBy: 0).cells.matching(identifier: "ProgressView").element
 
-        // wait until timeout reached
-        waitNotExistance(for: ladingElement)
-        
+        sleep(3) // wait for book cover to load
         XCUIApplication().cells
-          .containing(.staticText, identifier: "Alice's Adventures in Wonderland")
-          .firstMatch
-          .tap()
+            .containing(.staticText, identifier: "Alice's Adventures in Wonderland")
+            .firstMatch
+            .tap()
         snapshot("1BookDetail")
     }
-    
-    func waitNotExistance(for element: XCUIElement, timeout: Double = 5) {
-        let notExists = NSPredicate(format: "exists != 1")
-        let elementShown = expectation(for: notExists, evaluatedWith: element)
-        wait(for: [elementShown], timeout: timeout, enforceOrder: false)
-    }
-
 }
-
-

@@ -12,10 +12,10 @@ struct ContentView: View {
 
     var body: some View {
         let takingScreenshots = getEnvVar("SKIP_EMAIL")
-        
+
         if takingScreenshots != nil || modelData.kindleEmail != nil {
             BookSearchView()
-        } else{
+        } else {
             EmailPromptView()
         }
     }
