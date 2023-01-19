@@ -4,6 +4,7 @@
 *.certSigningRequest
 *.p12
 *.mobileprovision
+**/.DS_Store
 
 # fastlane specific
 **/fastlane/report.xml
