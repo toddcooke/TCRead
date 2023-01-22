@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct AboutView: View {
-    @Binding var isPresented: Bool
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,17 +26,13 @@ struct AboutView: View {
             }
 
             Divider()
-            Text("All book content presented by this app comes from gutenberg.org. Gutenberg makes copyright-free books easily and freely available. Check out Project Gutenberg at https://www.gutenberg.org")
-
-            Button("Done") {
-                isPresented.toggle()
-            }.buttonStyle(.borderedProminent)
+            Text("All book content presented by this app comes from https://www.gutenberg.org. Project Gutenberg makes copyright-free books freely available.")
         }.padding()
     }
 }
 
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutView(isPresented: .constant(false))
+        AboutView()
     }
 }

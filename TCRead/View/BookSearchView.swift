@@ -5,8 +5,8 @@ struct BookSearchView: View {
     @State private var searchText = ""
     @State private var bookId: String?
     @State private var searchingByTitle = true
-    @State var showAboutView = false
-
+    @Environment(\.openWindow) var openWindow
+    
     var body: some View {
         NavigationSplitView {
             Toggle(isOn: $searchingByTitle) {
@@ -28,10 +28,17 @@ struct BookSearchView: View {
             .navigationTitle("Book Search")
             .toolbar {
                 ToolbarItem {
-                    Button {
-                        showAboutView.toggle()
+                    NavigationLink {
+                        AboutView()
                     } label: {
                         Label("About", systemImage: "questionmark.circle.fill")
+                    }
+                }
+                ToolbarItem {
+                    NavigationLink {
+                        SettingsView()
+                    } label: {
+                        Label("Settings", systemImage: "gearshape.fill")
                     }
                 }
             }
@@ -43,9 +50,6 @@ struct BookSearchView: View {
             }
         }
         .searchable(text: $searchText)
-        .sheet(isPresented: $showAboutView) {
-            AboutView(isPresented: $showAboutView)
-        }
     }
 
     var searchResults: [Book] {

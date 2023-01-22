@@ -26,8 +26,8 @@ lane :beta do
 end
 
 lane :release do
-  capture_screenshots
-  build_app
-  upload_to_app_store       # Upload the screenshots and the binary to iTunes
-  slack                     # Let your team-mates know the new version is live
+  capture_screenshots                  # generate new screenshots for the App Store
+  sync_code_signing(type: "appstore")  # see code signing guide for more information
+  build_app(scheme: "TCRead")
+  upload_to_app_store                  # upload your app to App Store Connect
 end

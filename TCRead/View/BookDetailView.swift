@@ -27,14 +27,7 @@ struct BookDetailView: View {
             .frame(minWidth: 300, maxHeight: 300)
             .shadow(color: .black, radius: 5, x: 10, y: 10)
             .padding()
-
-            Text(book.title)
-                .bold()
-                .font(.title)
-                .padding([.leading, .trailing])
-                .lineLimit(1)
-            Text(book.authors.formatAuthor()).font(.title2)
-
+            
             if let bookData {
                 Button(modelData.booksSent.contains(book) ? "Book Sent!" : "Send to kindle") {
                     sendMail.toggle()
@@ -53,8 +46,16 @@ struct BookDetailView: View {
                 .buttonStyle(.bordered)
                 .padding()
             }
+            
+            Divider()
+            Text(book.title)
+                .bold()
+                .font(.title)
+                .padding([.leading, .trailing])
+            Text(book.authors.formatAuthor()).font(.title2)
         }
         .padding()
+        .navigationTitle(book.authors)
     }
 
     func downloadEbook(url: URL) {

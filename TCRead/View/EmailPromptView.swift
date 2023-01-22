@@ -9,39 +9,45 @@ import Foundation
 import SwiftUI
 
 struct EmailPromptView: View {
+    @Environment(\.dismiss) var dismiss
     @State var kindleEmailInput: String = ""
     @EnvironmentObject var modelData: ModelData
+    var containerWidth: CGFloat = UIScreen.main.bounds.width - 32.0
 
     var body: some View {
-        Text("What's your kindle email?").bold()
-        HStack {
-            Text("Not sure?")
-            Link(
-                destination: URL(
-                    string: "https://www.amazon.com/sendtokindle/email#s2k-email-step-by-step")!
-            ) {
-                Text("Start here")
+        VStack {
+            Form{
+                HStack{
+                    Text("What's your kindle email?")
+                    Spacer()
+                    Link("More info", destination: URL(
+                                                    string: "https://www.amazon.com/sendtokindle/email#s2k-email-step-by-step")!)
+                }
+                TextField(
+                    "Kindle email",
+                    text: $kindleEmailInput
+                )
+                .keyboardType(.emailAddress)
+                .disableAutocorrection(true)
+                .textFieldStyle(.roundedBorder)
+                .autocapitalization(.none)
+                .onSubmit(onSubmitEmail)
+                .alert(isPresented: $modelData.showErrorMessage) {
+                    Alert(
+                        title: Text("Invalid email"),
+                        message: Text("Please use an email like this: alice@kindle.com")
+                    )
+                }
+                HStack {
+                    Button("Submit", action: onSubmitEmail)
+                }
+                 
             }
+
         }
-        TextField(
-            "Kindle email",
-            text: $kindleEmailInput
-        )
-        .keyboardType(.emailAddress)
-        .disableAutocorrection(true)
-        .textFieldStyle(.roundedBorder)
         .padding()
-        .autocapitalization(.none)
-        .onSubmit(onSubmitEmail)
-        .alert(isPresented: $modelData.showErrorMessage) {
-            Alert(
-                title: Text("Invalid email"),
-                message: Text("Please use an email like this: alice@kindle.com")
-            )
-        }
-        HStack {
-            Button("Submit", action: onSubmitEmail)
-        }
+        .navigationTitle("Update kindle email")
+        .frame(width: 400)
     }
 
     func onSubmitEmail() {
@@ -50,6 +56,7 @@ struct EmailPromptView: View {
             return
         }
         modelData.setKindleEmail(kindleEmailInput)
+        dismiss()
     }
 
     struct EmailPromptView_Previews: PreviewProvider {
