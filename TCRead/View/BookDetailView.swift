@@ -55,7 +55,8 @@ struct BookDetailView: View {
             Text(book.authors.formatAuthor()).font(.title2)
         }
         .padding()
-        .navigationTitle(book.authors)
+        .navigationTitle(book.title)
+        .navigationBarTitleDisplayMode(.inline)
     }
 
     func downloadEbook(url: URL) {

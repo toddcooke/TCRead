@@ -14,7 +14,6 @@ struct AboutView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Group {
-                Text("About TCRead").font(.title)
                 Text("TCRead lets you search for free ebooks and email them to your kindle.").padding()
                 Text("To use TCRead:")
                 Text("1. When you first start the app, enter your kindle email. You can find this here: https://www.amazon.com/sendtokindle/email#s2k-email-step-by-step")
@@ -27,7 +26,9 @@ struct AboutView: View {
 
             Divider()
             Text("All book content presented by this app comes from https://www.gutenberg.org. Project Gutenberg makes copyright-free books freely available.")
-        }.padding()
+        }
+        .padding()
+        .navigationTitle("About TCRead")
     }
 }
 

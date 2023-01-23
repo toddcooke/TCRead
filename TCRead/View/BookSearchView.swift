@@ -2,10 +2,11 @@ import SwiftUI
 
 struct BookSearchView: View {
     var bookRepo = BookRepository.shared!
+    @EnvironmentObject var modelData: ModelData
     @State private var searchText = ""
     @State private var bookId: String?
     @State private var searchingByTitle = true
-    @Environment(\.openWindow) var openWindow
+    @State private var showSettings = false
     
     var body: some View {
         NavigationSplitView {
@@ -35,8 +36,10 @@ struct BookSearchView: View {
                     }
                 }
                 ToolbarItem {
-                    NavigationLink {
-                        SettingsView()
+                    Menu {
+                        Button("Change kindle email"){
+                            showSettings.toggle()
+                        }
                     } label: {
                         Label("Settings", systemImage: "gearshape.fill")
                     }
@@ -48,6 +51,9 @@ struct BookSearchView: View {
                     BookDetailView(book: book)
                 }
             }
+        }
+        .sheet(isPresented: $showSettings){
+            EmailPromptView().environmentObject(modelData)
         }
         .searchable(text: $searchText)
     }

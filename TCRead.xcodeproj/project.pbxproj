@@ -17,6 +17,7 @@
 		B457F0C8296C858F0085690A /* TCReadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0C7296C858F0085690A /* TCReadTests.swift */; };
 		B457F0D2296C858F0085690A /* TCReadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D1296C858F0085690A /* TCReadUITests.swift */; };
 		B457F0D4296C858F0085690A /* TCReadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */; };
+		B48D7A1F297DC4A500E680CE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B48D7A1E297DC4A500E680CE /* Settings.bundle */; };
 		B49B0E1E29774C7A00A74AE1 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0E1D29774C7A00A74AE1 /* AboutView.swift */; };
 		B49B0E252978548C00A74AE1 /* EnvVarUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0E242978548C00A74AE1 /* EnvVarUtil.swift */; };
 		B4A080E32971C4EA00C95283 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080E22971C4EA00C95283 /* FastlaneScreenshots.swift */; };
@@ -74,6 +75,15 @@
 		B457F0CD296C858F0085690A /* TCReadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCReadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B457F0D1296C858F0085690A /* TCReadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITests.swift; sourceTree = "<group>"; };
 		B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B48D7A1E297DC4A500E680CE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = "../../Library/Developer/Xcode/DerivedData/TCRead-edihamwzczawlsadtxzlmbrzmqjp/SourcePackages/checkouts/SQLite.swift/Settings.bundle"; sourceTree = "<group>"; };
+		B48D7A28297EFFBA00E680CE /* fjjfjffjApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fjjfjffjApp.swift; sourceTree = "<group>"; };
+		B48D7A2A297EFFBA00E680CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B48D7A2C297EFFBB00E680CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B48D7A2E297EFFBB00E680CE /* fjjfjffj.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fjjfjffj.entitlements; sourceTree = "<group>"; };
+		B48D7A30297EFFBB00E680CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B48D7A3A297EFFBC00E680CE /* fjjfjffjTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fjjfjffjTests.swift; sourceTree = "<group>"; };
+		B48D7A44297EFFBC00E680CE /* fjjfjffjUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fjjfjffjUITests.swift; sourceTree = "<group>"; };
+		B48D7A46297EFFBC00E680CE /* fjjfjffjUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fjjfjffjUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B49B0E1D29774C7A00A74AE1 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		B49B0E242978548C00A74AE1 /* EnvVarUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvVarUtil.swift; sourceTree = "<group>"; };
 		B4A080E02971C4EA00C95283 /* FastlaneScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,11 +138,15 @@
 		B457F0AA296C858E0085690A = {
 			isa = PBXGroup;
 			children = (
+				B48D7A1E297DC4A500E680CE /* Settings.bundle */,
 				B4C8C9B1296C88F200653437 /* book.sqlite3 */,
 				B457F0B5296C858F0085690A /* TCRead */,
 				B457F0C6296C858F0085690A /* TCReadTests */,
 				B457F0D0296C858F0085690A /* TCReadUITests */,
 				B4A080E12971C4EA00C95283 /* FastlaneScreenshots */,
+				B48D7A27297EFFBA00E680CE /* fjjfjffj */,
+				B48D7A39297EFFBC00E680CE /* fjjfjffjTests */,
+				B48D7A43297EFFBC00E680CE /* fjjfjffjUITests */,
 				B457F0B4296C858F0085690A /* Products */,
 				93DFB26822DBFAA6CAC546C2 /* .env */,
 				93DFB550D990652F0E21AF22 /* README.md */,
@@ -191,6 +205,43 @@
 				B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */,
 			);
 			path = TCReadUITests;
+			sourceTree = "<group>";
+		};
+		B48D7A27297EFFBA00E680CE /* fjjfjffj */ = {
+			isa = PBXGroup;
+			children = (
+				B48D7A28297EFFBA00E680CE /* fjjfjffjApp.swift */,
+				B48D7A2A297EFFBA00E680CE /* ContentView.swift */,
+				B48D7A2C297EFFBB00E680CE /* Assets.xcassets */,
+				B48D7A2E297EFFBB00E680CE /* fjjfjffj.entitlements */,
+				B48D7A2F297EFFBB00E680CE /* Preview Content */,
+			);
+			path = fjjfjffj;
+			sourceTree = "<group>";
+		};
+		B48D7A2F297EFFBB00E680CE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B48D7A30297EFFBB00E680CE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B48D7A39297EFFBC00E680CE /* fjjfjffjTests */ = {
+			isa = PBXGroup;
+			children = (
+				B48D7A3A297EFFBC00E680CE /* fjjfjffjTests.swift */,
+			);
+			path = fjjfjffjTests;
+			sourceTree = "<group>";
+		};
+		B48D7A43297EFFBC00E680CE /* fjjfjffjUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B48D7A44297EFFBC00E680CE /* fjjfjffjUITests.swift */,
+				B48D7A46297EFFBC00E680CE /* fjjfjffjUITestsLaunchTests.swift */,
+			);
+			path = fjjfjffjUITests;
 			sourceTree = "<group>";
 		};
 		B49B0E232978547900A74AE1 /* Util */ = {
@@ -380,6 +431,7 @@
 				B457F0BE296C858F0085690A /* Preview Assets.xcassets in Resources */,
 				B457F0BB296C858F0085690A /* Assets.xcassets in Resources */,
 				93DFB886948CBB0E23F4034B /* PrivacyPolicy.md in Resources */,
+				B48D7A1F297DC4A500E680CE /* Settings.bundle in Resources */,
 				93DFBCA209DF30EAF7886FE8 /* SupportUrl.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
