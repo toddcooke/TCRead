@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4A080DF2971C4EA00C95283"
-               BuildableName = "FastlaneScreenshots.xctest"
-               BlueprintName = "FastlaneScreenshots"
+               BlueprintIdentifier = "B457F0B2296C858F0085690A"
+               BuildableName = "TCRead.app"
+               BlueprintName = "TCRead"
                ReferencedContainer = "container:TCRead.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,17 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4A080DF2971C4EA00C95283"
-               BuildableName = "FastlaneScreenshots.xctest"
-               BlueprintName = "FastlaneScreenshots"
-               ReferencedContainer = "container:TCRead.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -68,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B457F0B2296C858F0085690A"
+            BuildableName = "TCRead.app"
+            BlueprintName = "TCRead"
+            ReferencedContainer = "container:TCRead.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

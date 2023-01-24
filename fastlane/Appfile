@@ -1,5 +1,5 @@
 app_identifier("com.toddcooke.TCRead") # The bundle identifier of your app
-# itc_team_id was 125976068
+apple_id("toddcookevt@gmail.com")
 itc_team_id("X42G99P7J6") # App Store Connect Team ID
 team_id("X42G99P7J6") # Developer Portal Team ID
 

@@ -19,9 +19,8 @@ lane :screenshots do
 end
 
 lane :beta do
-  get_certificates           # invokes cert
-  get_provisioning_profile   # invokes sigh
-  build_app
+  sync_code_signing(type: "appstore")    # see code signing guide for more information
+  build_app(scheme: "TCRead")
   upload_to_testflight
 end
 
