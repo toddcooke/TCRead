@@ -40,13 +40,13 @@ struct EmailPromptView: View {
             message: Text("Please use an email like this: alice@kindle.com")
           )
         }
-        Button("Cancel", role: .cancel) {
-          dismiss()
-        }
-        .opacity(modelData.kindleEmail == nil ? 0 : 1)
+          if modelData.kindleEmail != nil {
+              Button("Cancel", role: .cancel) {
+                dismiss()
+              }
+          }
         Button("Submit", action: onSubmitEmail)
       }
-
     }
     .padding()
     .navigationTitle("Update kindle email")

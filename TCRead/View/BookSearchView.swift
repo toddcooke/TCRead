@@ -59,7 +59,7 @@ struct BookSearchView: View {
     }
 
     var searchResults: [Book] {
-        if searchText.isEmpty {
+        if searchText.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
             return []
         } else if searchingByTitle {
             return bookRepo.getBooksByTitle(searchText)

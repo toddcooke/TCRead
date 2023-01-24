@@ -2,7 +2,9 @@
 
 # A list of devices you want to take the screenshots from
 devices([
+  "iPhone 8",
   "iPhone 14 Plus",
+  "iPad Pro (12.9-inch) (2nd generation)",
   "iPad Pro (12.9-inch) (6th generation)",
 ])
 

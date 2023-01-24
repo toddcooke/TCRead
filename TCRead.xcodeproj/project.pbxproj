@@ -17,7 +17,6 @@
 		B457F0C8296C858F0085690A /* TCReadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0C7296C858F0085690A /* TCReadTests.swift */; };
 		B457F0D2296C858F0085690A /* TCReadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D1296C858F0085690A /* TCReadUITests.swift */; };
 		B457F0D4296C858F0085690A /* TCReadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */; };
-		B48D7A1F297DC4A500E680CE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B48D7A1E297DC4A500E680CE /* Settings.bundle */; };
 		B49B0E1E29774C7A00A74AE1 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0E1D29774C7A00A74AE1 /* AboutView.swift */; };
 		B49B0E252978548C00A74AE1 /* EnvVarUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B0E242978548C00A74AE1 /* EnvVarUtil.swift */; };
 		B4A080E32971C4EA00C95283 /* FastlaneScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A080E22971C4EA00C95283 /* FastlaneScreenshots.swift */; };
@@ -74,7 +73,6 @@
 		B457F0CD296C858F0085690A /* TCReadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCReadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B457F0D1296C858F0085690A /* TCReadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITests.swift; sourceTree = "<group>"; };
 		B457F0D3296C858F0085690A /* TCReadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B48D7A1E297DC4A500E680CE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = "../../Library/Developer/Xcode/DerivedData/TCRead-edihamwzczawlsadtxzlmbrzmqjp/SourcePackages/checkouts/SQLite.swift/Settings.bundle"; sourceTree = "<group>"; };
 		B49B0E1D29774C7A00A74AE1 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		B49B0E242978548C00A74AE1 /* EnvVarUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvVarUtil.swift; sourceTree = "<group>"; };
 		B4A080E02971C4EA00C95283 /* FastlaneScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +127,6 @@
 		B457F0AA296C858E0085690A = {
 			isa = PBXGroup;
 			children = (
-				B48D7A1E297DC4A500E680CE /* Settings.bundle */,
 				B4C8C9B1296C88F200653437 /* book.sqlite3 */,
 				B457F0B5296C858F0085690A /* TCRead */,
 				B457F0C6296C858F0085690A /* TCReadTests */,
@@ -381,7 +378,6 @@
 				B457F0BE296C858F0085690A /* Preview Assets.xcassets in Resources */,
 				B457F0BB296C858F0085690A /* Assets.xcassets in Resources */,
 				93DFB886948CBB0E23F4034B /* PrivacyPolicy.md in Resources */,
-				B48D7A1F297DC4A500E680CE /* Settings.bundle in Resources */,
 				93DFBCA209DF30EAF7886FE8 /* SupportUrl.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
