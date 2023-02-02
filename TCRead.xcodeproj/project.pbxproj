@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		93DFB886948CBB0E23F4034B /* PrivacyPolicy.md in Resources */ = {isa = PBXBuildFile; fileRef = 93DFB4D1F5C7A92C22A81593 /* PrivacyPolicy.md */; };
 		93DFBCA209DF30EAF7886FE8 /* SupportUrl.md in Resources */ = {isa = PBXBuildFile; fileRef = 93DFB06EDBADC221768E4D43 /* SupportUrl.md */; };
+		B40A7CEF298C429E00E999A9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B40A7CEE298C429E00E999A9 /* Info.plist */; };
 		B4486E6C297AFD7900DF07C9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4486E6B297AFD7900DF07C9 /* SettingsView.swift */; };
 		B457F0B7296C858F0085690A /* TCReadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0B6296C858F0085690A /* TCReadApp.swift */; };
 		B457F0B9296C858F0085690A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F0B8296C858F0085690A /* ContentView.swift */; };
@@ -32,7 +33,6 @@
 		B4C8C9AF296C88BC00653437 /* EmailPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8C9AB296C88BC00653437 /* EmailPromptView.swift */; };
 		B4C8C9B0296C88BC00653437 /* EmailSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8C9AC296C88BC00653437 /* EmailSendView.swift */; };
 		B4C8C9B2296C88F200653437 /* book.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = B4C8C9B1296C88F200653437 /* book.sqlite3 */; };
-		B4D761BF2981B143006A3A56 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4D761BE2981B143006A3A56 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +63,7 @@
 		93DFB06EDBADC221768E4D43 /* SupportUrl.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = SupportUrl.md; sourceTree = "<group>"; };
 		93DFB4D1F5C7A92C22A81593 /* PrivacyPolicy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PrivacyPolicy.md; sourceTree = "<group>"; };
 		93DFB550D990652F0E21AF22 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B40A7CEE298C429E00E999A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4486E6B297AFD7900DF07C9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B457F0B3296C858F0085690A /* TCRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B457F0B6296C858F0085690A /* TCReadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCReadApp.swift; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		B4C8C9AC296C88BC00653437 /* EmailSendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailSendView.swift; sourceTree = "<group>"; };
 		B4C8C9B1296C88F200653437 /* book.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = book.sqlite3; sourceTree = "<group>"; };
 		B4C8C9B3296C891300653437 /* TCRead.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TCRead.entitlements; sourceTree = "<group>"; };
-		B4D761BE2981B143006A3A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +129,7 @@
 		B457F0AA296C858E0085690A = {
 			isa = PBXGroup;
 			children = (
+				B40A7CEE298C429E00E999A9 /* Info.plist */,
 				B4C8C9B1296C88F200653437 /* book.sqlite3 */,
 				B457F0B5296C858F0085690A /* TCRead */,
 				B457F0C6296C858F0085690A /* TCReadTests */,
@@ -164,7 +165,6 @@
 				B457F0B8296C858F0085690A /* ContentView.swift */,
 				B457F0BA296C858F0085690A /* Assets.xcassets */,
 				B457F0BC296C858F0085690A /* Preview Content */,
-				B4D761BE2981B143006A3A56 /* Info.plist */,
 			);
 			path = TCRead;
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 			files = (
 				B4C8C9B2296C88F200653437 /* book.sqlite3 in Resources */,
 				B457F0BE296C858F0085690A /* Preview Assets.xcassets in Resources */,
-				B4D761BF2981B143006A3A56 /* Info.plist in Resources */,
+				B40A7CEF298C429E00E999A9 /* Info.plist in Resources */,
 				B457F0BB296C858F0085690A /* Assets.xcassets in Resources */,
 				93DFB886948CBB0E23F4034B /* PrivacyPolicy.md in Resources */,
 				93DFBCA209DF30EAF7886FE8 /* SupportUrl.md in Resources */,
@@ -527,6 +527,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -581,6 +582,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -596,6 +598,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = TCRead/TCRead.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
@@ -608,7 +611,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -630,6 +633,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = TCRead/TCRead.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
@@ -642,7 +646,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

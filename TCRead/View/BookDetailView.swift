@@ -12,10 +12,11 @@ struct BookDetailView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var bookData: Data? = nil
     @State private var sendMail: Bool = false
+    let userAgent = "TCRead/1.0 (+https://github.com/toddcooke/TCRead)"
 
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: "https://www.gutenberg.org/cache/epub/\(book.textNum)/pg\(book.textNum).cover.medium.jpg")) { phase in
+            AsyncImage(url: URL(string: "http://aleph.gutenberg.org/cache/epub/\(book.textNum)/pg\(book.textNum).cover.medium.jpg")) { phase in
                 if let image = phase.image {
                     image
                 } else if phase.error != nil {
@@ -41,7 +42,7 @@ struct BookDetailView: View {
                 }
             } else {
                 Button("Send to kindle") {
-                    downloadEbook(url: URL(string: "https://www.gutenberg.org/ebooks/\(book.textNum).epub3.images")!)
+                    downloadEbook(url: URL(string: "http://aleph.gutenberg.org/cache/epub/\(book.textNum).epub3.images")!)
                 }
                 .buttonStyle(.bordered)
                 .padding()
