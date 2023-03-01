@@ -1,6 +1,6 @@
 # TCRead
 
-iOS and macOS app to send free ebooks to your kindle.
+iOS and macOS app to send copyright-free ebooks to your kindle.
 
 <img src="TCReadiPhoneScreenshots.png" alt="TCRead app screenshots" width="500">
 
