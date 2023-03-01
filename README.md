@@ -2,6 +2,8 @@
 
 iOS and macOS app to send free ebooks to your kindle.
 
+<img src="TCReadiPhoneScreenshots.png" alt="TCRead app screenshots" width="500">
+
 ### Development
 
 Deploying iOS:
