@@ -3,8 +3,8 @@ name: Update book sqlite db
 on:
   push:
   repository_dispatch:
-  schedule:
-    - cron:  '0 5 * * *'
+  #schedule:
+   # - cron:  '0 5 * * *'
 
 jobs:
   scheduled:
